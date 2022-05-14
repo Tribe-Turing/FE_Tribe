@@ -3,11 +3,11 @@ import React, {useState, useEffect} from 'react';
 import Dashboard from '../Dashboard/Dashboard';
 
 function App() {
-  const [users, setUSers] = setState([]);
-  const [userID, setUserID] = setState(0);
+  const [users, setUSers] = useState([]);
+  const [userID, setUserID] = useState(0);
   return (
     <div>
-      <Dashboard />
+      <Dashboard users={users}/>
     </div>
   );
 }
