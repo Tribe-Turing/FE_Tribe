@@ -1,5 +1,6 @@
 import React from 'react';
 import UserCard from '../UserCard/UserCard';
+import InterestSearchForm from '../InterestSearchForm/InterestSearchForm';
 
 const Dashboard = ({users}) => { 
     const userCards = users.map(user => {
@@ -14,6 +15,7 @@ const Dashboard = ({users}) => {
 
     return (
         <div>
+            <InterestSearchForm />
             {userCards}
         </div>
     )
