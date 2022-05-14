@@ -1,6 +1,7 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import Dashboard from '../Dashboard/Dashboard';
+import Nav from '../Nav/Nav';
 
 function App() {
   const [users, setUsers] = useState([
@@ -12,6 +13,7 @@ function App() {
   return (
     <div>
       <Dashboard users={users}/>
+      <Nav />
     </div>
   );
 }
