@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 const ProfileSettings = () => {
   const [location, setLocation] = useState('')
   const [pronoun, setPronoun] = useState('')
+  const [bio, setBio] = useState('')
   const [interests, setInterests] = useState({
     sports: false,
     nature: false,
@@ -22,6 +23,10 @@ const ProfileSettings = () => {
 
   const updatePronoun = (e) => {
     setPronoun(e.target.value)
+  }
+
+  const updateBio = (e) => {
+    setBio(e.target.value)
   }
 
   const updateInterests = (e) => {
@@ -183,6 +188,17 @@ const ProfileSettings = () => {
         />
         <label htmlFor='interests'>Networking</label>
 
+        <label htmlFor='bio'>Bio: </label>
+        <input
+          type='text'
+          placeholder='What do you want to bring to tribe?'
+          id='bio'
+          name='bio'
+          value={bio}
+          onChange={(e) => updateBio(e)}
+        />
+
+        <button>Submit</button>
       </form>
     </div>
   )
