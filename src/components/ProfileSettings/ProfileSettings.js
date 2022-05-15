@@ -3,7 +3,18 @@ import React, { useState } from 'react';
 const ProfileSettings = () => {
   const [location, setLocation] = useState('')
   const [pronoun, setPronoun] = useState('')
-  const [interests, setInterests] = useState([])
+  const [interests, setInterests] = useState({
+    sports: false,
+    nature: false,
+    music: false,
+    night_life: false,
+    art: false,
+    cinema: false,
+    food: false,
+    video_game: false,
+    traveling: false,
+    networking: false
+  })
   
   const updateLocation = (e) => {
     setLocation(e.target.value)
@@ -14,7 +25,13 @@ const ProfileSettings = () => {
   }
 
   const updateInterests = (e) => {
-    setInterests([...interests, e.target.value])
+    console.log(e.target.value)
+    console.log(e.target.checked)
+    if (e.target.checked) {
+      setInterests({...interests, [e.target.value]: true})
+    } else {
+      setInterests({ ...interests, [e.target.value]: false })
+    }
   }
 
   return(
@@ -145,7 +162,7 @@ const ProfileSettings = () => {
           type='checkbox'
           id='interests'
           name='interests'
-          value='video games'
+          value='video_games'
           onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Video Games</label>
