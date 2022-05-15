@@ -5,6 +5,7 @@ import Nav from '../Nav/Nav';
 import Header from '../Header/Header';
 
 // This is a copy of App showing what it would look like if it was just showing Chat functionality so that App doesn't have to be changed.
+// This will be deleted when we assemble App.
 
 function ChatApp() {
   const [users, setUsers] = useState([
