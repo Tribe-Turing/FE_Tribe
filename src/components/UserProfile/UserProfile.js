@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const UserProfile = () => {
     const [details, setDetails] = useState({
         "id": 1,
-        "first name": "Susan",
+        "first_name": "Susan",
         "last name": "Smith",
         "pronouns": "she/her",
         "image": "otter",
@@ -14,7 +14,7 @@ const UserProfile = () => {
 
     return (
         <>
-            <h2>{details.name}</h2>
+            <h2>{details.first_name}</h2>
             <p>{details.pronouns}</p>
             <p>{details.bio}</p>
             <ul>
