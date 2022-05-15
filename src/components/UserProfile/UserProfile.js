@@ -13,14 +13,15 @@ const UserProfile = () => {
     });
 
     return (
-        <>
+        <div key={details.id}>
             <h2>{details.first_name}</h2>
             <p>{details.pronouns}</p>
             <p>{details.bio}</p>
             <ul>
             {details.interests.map(interest => <li>{interest}</li>)}
             </ul>
-        </>
+            <button>Message {details.first_name}</button>
+        </div>
     )
 }
 
