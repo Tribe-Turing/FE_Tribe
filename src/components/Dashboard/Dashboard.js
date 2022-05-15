@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Route} from 'react-router-dom';
 import UserCard from '../UserCard/UserCard';
 import InterestSearchForm from '../InterestSearchForm/InterestSearchForm';
 import UserProfile from '../UserProfile/UserProfile';
@@ -29,11 +30,19 @@ const Dashboard = ({users}) => {
     })
     return (
         <div className='dashboard'>
-            <InterestSearchForm filterInterests={filterInterests}/>
-            <div className='card-container'>
-                {currentInterest ? filteredUsers : userCards} 
-            </div>
-            <UserProfile />
+            <Route exact path='/' render={() => {
+                return (
+                    <>
+                    <InterestSearchForm filterInterests={filterInterests}/>
+                    <div className='card-container'>
+                        {currentInterest ? filteredUsers : userCards} 
+                    </div>
+                    </>
+                )
+            }} />
+            <Route exact path='/user' render={() => {
+                return <UserProfile />
+            }}></Route>
         </div>
     )
 }
