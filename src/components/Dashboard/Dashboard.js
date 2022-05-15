@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import UserCard from '../UserCard/UserCard';
 import InterestSearchForm from '../InterestSearchForm/InterestSearchForm';
 import UserProfile from '../UserProfile/UserProfile';
+import './Dashboard.css'
 
 const Dashboard = ({users}) => { 
     const [currentInterest, setCurrentInterest] = useState('')
@@ -27,9 +28,11 @@ const Dashboard = ({users}) => {
             />)
     })
     return (
-        <div>
+        <div className='dashboard'>
             <InterestSearchForm filterInterests={filterInterests}/>
-            {currentInterest ? filteredUsers : userCards} 
+            <div className='card-container'>
+                {currentInterest ? filteredUsers : userCards} 
+            </div>
             <UserProfile />
         </div>
     )
