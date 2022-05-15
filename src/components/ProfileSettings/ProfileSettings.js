@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 const ProfileSettings = () => {
   const [location, setLocation] = useState('')
   const [pronoun, setPronoun] = useState('')
+  const [interests, setInterests] = useState([])
   
   const updateLocation = (e) => {
     setLocation(e.target.value)
@@ -10,6 +11,10 @@ const ProfileSettings = () => {
 
   const updatePronoun = (e) => {
     setPronoun(e.target.value)
+  }
+
+  const updateInterests = (e) => {
+    setInterests([...interests, e.target.value])
   }
 
   return(
@@ -72,7 +77,97 @@ const ProfileSettings = () => {
         />
         <label htmlFor='pronoun'>name</label>
 
-        
+        <p>Would you like to update your interests?</p>
+        <input
+          type='checkbox'
+          id='interests'
+          name='interests'
+          value='sports'
+          onChange={(e) => updateInterests(e)}
+        />
+        <label htmlFor='interests'>Sports</label>
+
+        <input
+          type='checkbox'
+          id='interests'
+          name='interests'
+          value='nature'
+          onChange={(e) => updateInterests(e)}
+        />
+        <label htmlFor='interests'>Nature</label>
+
+        <input
+          type='checkbox'
+          id='interests'
+          name='interests'
+          value='music'
+          onChange={(e) => updateInterests(e)}
+        />
+        <label htmlFor='interests'>Music</label>
+
+        <input
+          type='checkbox'
+          id='interests'
+          name='interests'
+          value='night_life'
+          onChange={(e) => updateInterests(e)}
+        />
+        <label htmlFor='interests'>Night Life</label>
+
+        <input
+          type='checkbox'
+          id='interests'
+          name='interests'
+          value='art'
+          onChange={(e) => updateInterests(e)}
+        />
+        <label htmlFor='interests'>Art</label>
+
+        <input
+          type='checkbox'
+          id='interests'
+          name='interests'
+          value='cinema'
+          onChange={(e) => updateInterests(e)}
+        />
+        <label htmlFor='interests'>Cinema</label>
+
+        <input
+          type='checkbox'
+          id='interests'
+          name='interests'
+          value='food'
+          onChange={(e) => updateInterests(e)}
+        />
+        <label htmlFor='interests'>Food</label>
+
+        <input
+          type='checkbox'
+          id='interests'
+          name='interests'
+          value='video games'
+          onChange={(e) => updateInterests(e)}
+        />
+        <label htmlFor='interests'>Video Games</label>
+
+        <input
+          type='checkbox'
+          id='interests'
+          name='interests'
+          value='traveling'
+          onChange={(e) => updateInterests(e)}
+        />
+        <label htmlFor='interests'>Traveling</label>
+
+        <input
+          type='checkbox'
+          id='interests'
+          name='interests'
+          value='networking'
+          onChange={(e) => updateInterests(e)}
+        />
+        <label htmlFor='interests'>Networking</label>
+
       </form>
     </div>
   )
