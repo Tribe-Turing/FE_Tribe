@@ -25,8 +25,6 @@ const ProfileSettings = () => {
   }
 
   const updateInterests = (e) => {
-    console.log(e.target.value)
-    console.log(e.target.checked)
     if (e.target.checked) {
       setInterests({...interests, [e.target.value]: true})
     } else {
