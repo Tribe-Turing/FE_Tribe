@@ -15,6 +15,7 @@ const InterestSearchForm = ({filterInterests}) => {
     return (
         <form>
             <select value={interest} onChange={(e) => selectInterest(e)}>
+                <option value=''>Filter By Interest</option>
                 <option value='sports'>Sports</option>
                 <option value='nature'>Nature</option>
                 <option value='music'>Music</option>
