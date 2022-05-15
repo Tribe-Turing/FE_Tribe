@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 
 // This is a copy of App showing what it would look like if it was just showing Chat functionality so that App doesn't have to be changed.
 
-function Chat() {
+function ChatApp() {
   const [users, setUsers] = useState([
     {username: 'Rory', id: 1, image: 'example.jpg'},
     {username: 'Lauralyn', id: 2, image: 'example2.jpg'},
@@ -22,4 +22,4 @@ function Chat() {
   );
 }
 
-export default Chat
+// export default ChatApp

@@ -1,11 +1,11 @@
 import React from 'react';
-import UserCard from '../ChatCard/ChatCard';
+import UserProfile from '../UserProfile/UserProfile';
 
 const OnlineProfiles = ({users}) => { 
     // Will need filter for online profiles, but otherwise will work the same
-    const userCards = users.map(user => {
+    const userProfiles = users.map(user => {
         return(
-            <UserCard
+            <UserProfile
                 image={user.image}
                 id={user.id}
                 key={user.id}
@@ -15,7 +15,7 @@ const OnlineProfiles = ({users}) => {
 
     return (
         <div>
-            {userCards}
+            {userProfiles}
         </div>
     )
 }
