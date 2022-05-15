@@ -15,6 +15,7 @@ const ChatList = ({users}) => {
 
     return (
         <div>
+            <Header />
             <OnlineProfiles />
             {chatCards}
         </div>
