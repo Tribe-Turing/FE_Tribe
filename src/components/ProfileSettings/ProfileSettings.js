@@ -44,10 +44,14 @@ const ProfileSettings = () => {
     }
   }
 
+  const submitSettings = () => {
+    console.log('submit settings form')
+  }
+
   return(
     <div>
       <h1>Edit Your Profile</h1>
-      <form>
+      <form onSubmit={submitSettings}>
         <label htmlFor='location'>Change location: </label>
         <input
           type='text'
