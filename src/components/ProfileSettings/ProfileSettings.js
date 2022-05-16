@@ -44,8 +44,8 @@ const ProfileSettings = () => {
     }
   }
 
-  const submitSettings = () => {
-    console.log('submit settings form')
+  const submitSettings = (e) => {
+    e.preventDefault()
   }
 
   return(
