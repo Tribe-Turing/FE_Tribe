@@ -4,6 +4,7 @@ const ProfileSettings = () => {
   const [location, setLocation] = useState('')
   const [pronoun, setPronoun] = useState('')
   const [bio, setBio] = useState('')
+  const [selectedInterests, setSelectedInterests] = useState([])
   const [interests, setInterests] = useState({
     sports: false,
     nature: false,
@@ -32,8 +33,14 @@ const ProfileSettings = () => {
   const updateInterests = (e) => {
     if (e.target.checked) {
       setInterests({...interests, [e.target.value]: true})
+      setSelectedInterests([...selectedInterests, e.target.value])
     } else {
       setInterests({ ...interests, [e.target.value]: false })
+      const removedIndex = selectedInterests.indexOf(e.target.value)
+      setSelectedInterests([
+        ...selectedInterests.slice(0, removedIndex),
+        ...selectedInterests.slice(removedIndex + 1)
+      ])
     }
   }
 
