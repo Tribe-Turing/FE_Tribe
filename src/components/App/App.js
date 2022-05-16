@@ -157,8 +157,27 @@ function App() {
   const [userID, setUserID] = useState(0);
   return (
     <div>
-      <Dashboard users={users}/>
-      <Nav />
+      <Route exact path='/user'>
+         <UserProfile />
+         <Nav />
+      </Route>
+
+      <Route exact path='/'>
+        <Header />
+        <Dashboard users={users}/>
+      </Route>
+
+      <Route exact path='/chatlist'>
+        <Header />
+        <OnlineProfiles />
+        <ChatList users={users}/>
+        <Nav />
+      </Route>
+
+      <Route exact path='/'>
+        <Dashboard users={users}/>
+        <Nav />
+      </Route>
     </div>
   );
 }
