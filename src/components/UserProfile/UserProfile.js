@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 
 const UserProfile = () => {
     const [details, setDetails] = useState({
@@ -13,12 +13,12 @@ const UserProfile = () => {
     });
 
     return (
-        <div key={details.id}>
+        <div>
             <h2>{details.first_name}</h2>
             <p>{details.pronouns}</p>
             <p>{details.bio}</p>
             <ul>
-            {details.interests.map(interest => <li>{interest}</li>)}
+            {details.interests.map((interest, index) => <li key={index}>{interest}</li>)}
             </ul>
             <button>Message {details.first_name}</button>
         </div>
