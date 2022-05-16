@@ -5,7 +5,7 @@ import InterestSearchForm from '../InterestSearchForm/InterestSearchForm';
 import UserProfile from '../UserProfile/UserProfile';
 import './Dashboard.css'
 
-const Dashboard = ({users}) => { 
+const Dashboard = ({users}) => {
     const [currentInterest, setCurrentInterest] = useState('')
     const filterInterests = (interest) => {
         setCurrentInterest(interest)
@@ -14,7 +14,7 @@ const Dashboard = ({users}) => {
         return user.interests.includes(currentInterest)
     }).map(user => {
         return(
-            <UserCard 
+            <UserCard
                 id={user.id}
                 key={user.id}
                 username={user.first_name}
@@ -22,7 +22,7 @@ const Dashboard = ({users}) => {
     })
     const userCards = users.map(user => {
         return(
-            <UserCard 
+            <UserCard
                 id={user.id}
                 key={user.id}
                 username={user.first_name}
@@ -30,19 +30,16 @@ const Dashboard = ({users}) => {
     })
     return (
         <div className='dashboard'>
-            <Route exact path='/' render={() => {
-                return (
-                    <>
+            // <Route exact path='/' render={() => {
+            //     return (
+                    // <>
                     <InterestSearchForm filterInterests={filterInterests}/>
                     <div className='card-container'>
-                        {currentInterest ? filteredUsers : userCards} 
+                        {currentInterest ? filteredUsers : userCards}
                     </div>
-                    </>
-                )
-            }} />
-            <Route exact path='/user' render={() => {
-                return <UserProfile />
-            }}></Route>
+                    // </>
+                // )
+            // }} />
         </div>
     )
 }
