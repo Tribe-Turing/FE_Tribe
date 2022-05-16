@@ -1,22 +1,23 @@
 import React from 'react';
 import Message from '../Message/Message';
 
-const Messages = ({forum}) => { 
-    const messages = forum.messages.map(message => {
-        return(
-            <Message
-                image={forum.image}
-                id={forum.id}
-                key={forum.id}
-                message={forum.message}
-            />)
-    })
+const Messages = () => {
 
     return (
         <div>
-            {messages}
+            {'messages'}
         </div>
     )
 }
 
 export default Messages;
+
+// const messages = forum.messages.map(message => {
+  //     return(
+    //         <Message
+    //             image={forum.image}
+    //             id={forum.id}
+    //             key={forum.id}
+    //             message={forum.message}
+    //         />)
+    // })

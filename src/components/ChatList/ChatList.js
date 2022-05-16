@@ -2,24 +2,26 @@ import React from 'react';
 import ChatCard from '../ChatCard/ChatCard';
 import OnlineProfiles from '../OnlineProfiles/OnlineProfiles';
 
-const ChatList = ({users}) => { 
-    const chatCards = users.map(user => {
-        return(
-            <ChatCard 
-                image={user.image}
-                id={user.id}
-                key={user.id}
-                username={user.username}
-            />)
-    })
+//Will need data item containing chatroom (when avail from back end)
+
+const ChatList = () => {
 
     return (
         <div>
-            <Header />
-            <OnlineProfiles />
-            {chatCards}
+            It chat
         </div>
     )
 }
 
 export default ChatList;
+
+
+// // const chatCards = users.map(user => {
+  // //     return(
+    // //         <ChatCard
+    // //             image={user.image}
+    // //             id={user.id}
+    // //             key={user.id}
+    // //             username={user.username}
+    // //         />)
+    // })
