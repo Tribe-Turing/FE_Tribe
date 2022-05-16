@@ -10,7 +10,7 @@ const Chat = () => {
   const params = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/convesations/${params.id}`, {
+    fetch(`http://localhost:4000/api/v1/convesations/${params.id}`, {
       method: "GET",
       // headers: {
       //  "Authorization": localStorage.token
@@ -42,7 +42,7 @@ const Chat = () => {
     const handlers = {
       received(data) {
         setMessages([...messages, data]);
-        fetch(`http://localhost:4000/messages/${data.message.id}`, {
+        fetch(`http://localhost:4000/api/v1/messages/${data.message.id}`, {
           method: "PATCH",
           headers: {"content-type": "application/json"},
         })
@@ -69,6 +69,66 @@ const Chat = () => {
   if (isLoaded) {
     //add return value for message data
     console.log(messages)
+    const messagesOrdered = [...messages].reverse()
+
+    const messageBubbles = messagesOrdered.map((message) => {
+      if (message.user_id === loggedInUser.id) {
+        return (
+          <div className="sent-message" key={message.id}>
+            <p className="sent-message-temp">{message.content}</p>
+            <NavLink to={`/profile/${loggedInUser.id}`}><img className="profile-badge convo" src={loggedInUserProfPic} alt={loggedInUser.username} /></NavLink>
+          </div>
+        )
+      } else {
+        return (
+          <div className="receieved-message" key={message.id}>
+            <NavLink to={`/profile/${message.user_id}`}><img className="profile-badge convo" src={message.user_prof_pic} alt={message.user_username} /></NavLink>
+            <p className="receieved-message-temp">{message.content}</p>
+          </div>
+        )
+      }
+    })
+
+    function handleSubmit(e) {
+      e.preventDefault()
+
+      if (newMessage !== "") {
+        const data = {
+          content: newMessage,
+          conversation_id: params.id,
+          user_id: loggedInUser.id,
+          read: false
+        }
+
+        setNewMessage("")
+
+        fetch("http://localhost:4000/api/v1/messages", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            "Authorization": loggedInUser.token
+          },
+          body: JSON.stringify(data)
+        })
+      }
+    }
+    return (
+      <section>
+        <div className="page-content conversation-page">
+          <h1 className="profile-h1 username" id="chat">{otherUser}</h1>
+          <div className="line info-panel"></div>
+          <div className="messages-container">
+            {messageBubbles}
+          </div>
+          <div className="message-form">
+            <form onSubmit={handleSubmit}>
+              <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="message-input"/>
+              <button type="submit" className="message-button">Send</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    )
   } else {
     return (
       <div className="page-container">
