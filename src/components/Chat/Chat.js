@@ -10,10 +10,10 @@ const Chat = () => {
   const params = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/convesations/${params.id}`, {
+    fetch(`http://localhost:4000/convesations/${params.id}`, {
       method: "GET",
       // headers: {
-      //  "Aoutherization": localStorage.token
+      //  "Authorization": localStorage.token
       // }
     })
     .then(res => res.json())
@@ -33,7 +33,7 @@ const Chat = () => {
 
   useEffect(() => {
     if (!cable.current) {
-      cable.current = createConsumer("ws://localhost:3000/cable")
+      cable.current = createConsumer("ws://localhost:4000/cable")
     }
     const paramsToSend = {
       channel: "ConversationChannel",
@@ -42,6 +42,10 @@ const Chat = () => {
     const handlers = {
       received(data) {
         setMessages([...messages, data]);
+        fetch(`http://localhost:4000/messages/${data.message.id}`, {
+          method: "PATCH",
+          headers: {"content-type": "application/json"},
+        })
       },
 
       connected() {
@@ -50,6 +54,7 @@ const Chat = () => {
 
       disconnected() {
         console.log("disconnected");
+        cable.current = null;
       }
     }
     const subscription = cable.subscription.create(paramsToSend, handlers)
@@ -57,12 +62,13 @@ const Chat = () => {
     return function cleanup() {
       console.log("unsubbing from ", params.id);
       cable.current = null;
-      subscirption.unsubscribe();
+      subscription.unsubscribe();
     }
   }, [params.id, messages, logginInUser.id])
 
   if (isLoaded) {
-
+    //add return value for message data
+    console.log(messages)
   } else {
     return (
       <div className="page-container">
