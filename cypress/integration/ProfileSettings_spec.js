@@ -50,6 +50,42 @@ describe('Profile Settings', () => {
     cy.get('form > :nth-child(13)')
       .contains('name')
 
+    cy.get(':nth-child(14)')
+      .contains('Would you like to update your interests?')
+
+    cy.get('form > :nth-child(16)')
+      .contains('Sports')
+    
+    cy.get('form > :nth-child(18)')
+      .contains('Nature')
+
+    cy.get('form > :nth-child(20)')
+      .contains('Music')
+
+    cy.get('form > :nth-child(22)')
+      .contains('Night Life')
+
+    cy.get('form > :nth-child(24)')
+      .contains('Art')
+
+    cy.get('form > :nth-child(26)')
+      .contains('Cinema')
+
+    cy.get('form > :nth-child(28)')
+      .contains('Food')
+
+    cy.get('form > :nth-child(30)')
+      .contains('Video Games')
+
+    cy.get('form > :nth-child(32)')
+      .contains('Traveling')
+
+    cy.get('form > :nth-child(34)')
+      .contains('Networking')
+
+
+
+
     cy.get('label').last().contains('Bio')
 
     cy.get('.submit-button')
