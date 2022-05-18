@@ -209,7 +209,7 @@ const ProfileSettings = () => {
           onChange={(e) => updateBio(e)}
         />
 
-        <button>Submit</button>
+        <button className='submit-button'>Submit</button>
       </form>
     </div>
   )
