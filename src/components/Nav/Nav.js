@@ -5,13 +5,13 @@ const Nav = () => {
     return (
         <nav>
           <Link to="/">
-            <button>Friends</button>
+            <button className="friends-button">Friends</button>
           </Link>
           <Link to="/chatlist">
-            <button>Chat</button>
+            <button className="chat-button">Chat</button>
           </Link>
           <Link to="/settings">
-            <button>Other</button>
+            <button className="settings-nav-button">Other</button>
           </Link>
         </nav>
     )
