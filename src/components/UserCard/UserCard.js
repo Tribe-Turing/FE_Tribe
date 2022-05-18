@@ -4,7 +4,7 @@ import './UserCard.css'
 
 const UserCard = ({username, id}) => {
     return (
-        <Link to='/user'>
+        <Link to={`/${id}`}>
         <div className='user-card' key={id}>
             <p>{username}</p>
         </div>

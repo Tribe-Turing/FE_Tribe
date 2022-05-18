@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import apiCalls from '../../apiCalls';
 
-const UserProfile = () => {
+const UserProfile = ({id}) => {
     const [details, setDetails] = useState({
         "id": 1,
         "first_name": "Susan",
@@ -11,6 +12,17 @@ const UserProfile = () => {
         "interests": ["animals", "nature"],
         "bio": "I am lonely and have too many cats."
     });
+
+    const getOneUser = async () => {
+        const response = await apiCalls.fetchOneUser(id);
+        const data = await response;
+        console.log(data);
+        setDetails(data);
+    }
+
+    useEffect(() => {
+        getOneUser();
+    }, []);
 
     return (
         <div>
