@@ -14,6 +14,7 @@ import apiCalls from '../../apiCalls';
 
 function App() {
   const [users, setUsers] = useState([]);
+  // const [userID, setUserID] = useState(0);
 
   const getUsers = async () => {
       const response = await apiCalls.fetchUsers();
@@ -26,14 +27,19 @@ function App() {
     getUsers();
   }, []);
 
-  const [userID, setUserID] = useState(0);
   return (
     <div>
-      <Route exact path='/user'>
-        <Header />
-        <UserProfile />
-        <Nav />
-      </Route>
+      <Route exact path='/:id' render={( { match } ) => {
+        let id = parseInt(match.params.id)
+        return (
+            <>
+              <Header />
+              <UserProfile id={id}/>
+              <Nav />
+            </>
+          )
+        }
+      }/>
 
       <Route exact path='/'>
         <Header />
