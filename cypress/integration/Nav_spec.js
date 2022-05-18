@@ -10,5 +10,12 @@ describe('Nav', () => {
         .get('button[class="settings-nav-button"]').click()
         .url().should('eq', 'http://localhost:3000/settings')
     })
-    
+    it('As a user, I should see a chat button and be able to click it', () => {
+        cy.visit('http://localhost:3000/')
+        .get('button[class="chat-button"]')
+        .should('contain', 'Chat')
+        .should('be.visible')
+        .click()
+        .url().should('eq', 'http://localhost:3000/chatlist')
+    })
 })
