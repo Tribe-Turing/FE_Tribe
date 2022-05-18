@@ -1,0 +1,10 @@
+{
+    "id": 1,
+    "first_name": "Susan",
+    "last name": "Smith",
+    "pronouns": "she/her",
+    "image": "otter",
+    "city": "Denver, CO",
+    "interests": ["animals", "nature"],
+    "bio": "I am lonely and have too many cats."
+}
