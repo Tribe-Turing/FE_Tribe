@@ -20,7 +20,7 @@ describe('Profile Settings', () => {
       .should('be.visible')
       .contains('Edit Your Profile')
   })
-  it.only('should display a form to update the location, pronouns, interests, and bio', () => {
+  it('should display a form to update the location, pronouns, interests, and bio', () => {
     cy.get('form')
       .should('be.visible')
       .within(form => {
@@ -82,9 +82,6 @@ describe('Profile Settings', () => {
 
     cy.get('form > :nth-child(34)')
       .contains('Networking')
-
-
-
 
     cy.get('label').last().contains('Bio')
 
