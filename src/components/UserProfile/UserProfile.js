@@ -20,7 +20,7 @@ const UserProfile = () => {
             <ul>
             {details.interests.map((interest, index) => <li key={index}>{interest}</li>)}
             </ul>
-            <button>Message {details.first_name}</button>
+            <button className='message-user'>Message {details.first_name}</button>
         </div>
     )
 }
