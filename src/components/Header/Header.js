@@ -6,7 +6,7 @@ import ProfileSettings from '../ProfileSettings/ProfileSettings';
 const Header = () => {
 
     return (
-        <>
+        <header>
           <Link to='/settings'>
             <button>settings</button>
           </Link>
@@ -16,7 +16,7 @@ const Header = () => {
           <Link to='/profile'>
             <LoggedInUser />
           </Link>
-        </>
+        </header>
     )
 }
 
