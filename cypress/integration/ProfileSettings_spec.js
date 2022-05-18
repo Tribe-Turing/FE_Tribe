@@ -24,10 +24,33 @@ describe('Profile Settings', () => {
     cy.get('form')
       .should('be.visible')
       .within(form => {
-        cy.get('label').should('have.length', 17)
-        cy.get('input').should('have.length', 17)
-        cy.get('button').should('have.length', 1)
+        cy.get('label').should('have.length', 17).should('be.visible')
+        cy.get('input').should('have.length', 17).should('be.visible')
+        cy.get('button').should('have.length', 1).should('be.visible')
       })
+
+    cy.get('label').first().contains('Change location')
+    cy.get('#location').should('have.attr', 'placeholder').and('contains', 'Denver, CO')
+    
+    cy.get('form > :nth-child(3)')
+      .contains('Would you like to update your pronouns?')
+
+    cy.get('form > :nth-child(5)')
+      .contains('she/her')
+
+    cy.get('form > :nth-child(7)')
+      .contains('he/him')
+
+    cy.get('form > :nth-child(9)')
+      .contains('they/them')
+
+    cy.get('form > :nth-child(11)')
+      .contains('ze/zie')
+
+    cy.get('form > :nth-child(13)')
+      .contains('name')
+
+    cy.get('label').last().contains('Bio')
 
     cy.get('.submit-button')
       .should('be.visible')
