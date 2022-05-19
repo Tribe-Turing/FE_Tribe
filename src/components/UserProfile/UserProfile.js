@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import apiCalls from '../../apiCalls';
+import loadingSpinner from '../../assets/loadingSpinner.gif';
 
 const UserProfile = ({id}) => {
-    const [details, setDetails] = useState({
-        "id": 1,
-        "first_name": "Susan",
-        "last name": "Smith",
-        "pronouns": "she/her",
-        "image": "otter",
-        "city": "Denver, CO",
-        "interests": ["animals", "nature"],
-        "bio": "I am lonely and have too many cats."
-    });
+    const [isLoading, setLoading] = useState(true);
+    const [details, setDetails] = useState({});
 
     const getOneUser = async () => {
         const response = await apiCalls.fetchOneUser(id);
         const data = await response;
         console.log(data);
         setDetails(data);
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -25,6 +19,7 @@ const UserProfile = ({id}) => {
     }, []);
 
     return (
+        isLoading ? <img className="loading-spinner" src={loadingSpinner}/> :
         <div>
             <h2>{details.first_name}</h2>
             <p>{details.pronouns}</p>
