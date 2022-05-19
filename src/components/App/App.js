@@ -14,13 +14,12 @@ import apiCalls from '../../apiCalls';
 
 function App() {
   const [users, setUsers] = useState([]);
-  // const [userID, setUserID] = useState(0);
+  const [userID, setUserID] = useState(1);
 
   const getUsers = async () => {
       const response = await apiCalls.fetchUsers();
-      const data = await response;
+      const data = await response.filter(profile => profile.id != userID);
       setUsers(data);
-      console.log(data);
   }
 
   useEffect(() => {
@@ -66,8 +65,21 @@ function App() {
         <Nav />
       </Route>
 
-      <Route exact path='/profile'>
+      {/* <Route exact path='/profile/:id' render={( { match } ) => {
+        let id = parseInt(match.params.id)
+        return (
+            <>
+              <Header />
+              <UserProfile id={id}/>
+              <Nav />
+            </>
+          )
+        }
+      }/> */}
+
+      <Route exact path='/profile/1'>
         <Header />
+        <UserProfile id={1}/>
         <Nav />
       </Route>
 

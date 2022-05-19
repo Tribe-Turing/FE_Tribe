@@ -9,7 +9,6 @@ const UserProfile = ({id}) => {
     const getOneUser = async () => {
         const response = await apiCalls.fetchOneUser(id);
         const data = await response;
-        console.log(data);
         setDetails(data);
         setLoading(false);
     }
