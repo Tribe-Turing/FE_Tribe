@@ -6,7 +6,7 @@ const UserCard = ({username, id, image}) => {
     return (
         <Link to={`/user/${id}`}>
         <div className='user-card' key={id}>
-            {/* <img src={image}/> */}
+            <img className="photo" src={image}/>
             <p>{username}</p>
         </div>
         </Link>
