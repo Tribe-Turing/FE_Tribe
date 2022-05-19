@@ -4,9 +4,9 @@ import './UserCard.css'
 
 const UserCard = ({username, id, image}) => {
     return (
-        <Link to={`/${id}`}>
+        <Link to={`/user/${id}`}>
         <div className='user-card' key={id}>
-            <img src={image}/>
+            {/* <img src={image}/> */}
             <p>{username}</p>
         </div>
         </Link>

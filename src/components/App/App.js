@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div>
-      <Route exact path='/:id' render={( { match } ) => {
+      <Route exact path='/user/:id' render={( { match } ) => {
         let id = parseInt(match.params.id)
         return (
             <>
