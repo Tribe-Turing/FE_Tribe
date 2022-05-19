@@ -20,7 +20,7 @@ const UserProfile = ({id}) => {
     return (
         isLoading ? <img className="loading-spinner" src={loadingSpinner}/> :
         <div>
-            <img src={details.image}/>
+            <img className="photo" src={details.image}/>
             <h2>{details.first_name}</h2>
             <p>{details.pronouns}</p>
             <p>{details.bio}</p>
