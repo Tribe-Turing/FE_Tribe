@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './UserCard.css'
 
-const UserCard = ({username, id}) => {
+const UserCard = ({username, id, image}) => {
     return (
-        <Link to='/user'>
+        <Link to={`/user/${id}`}>
         <div className='user-card' key={id}>
+            <img className="photo" src={image}/>
             <p>{username}</p>
         </div>
         </Link>
