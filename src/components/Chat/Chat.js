@@ -1,30 +1,35 @@
-import { useState, useRef, useEffect } from 'react';
-import { useParams } from "react-router";
+import React, { useState, useRef, useEffect } from 'react';
+import { useParams, NavLink } from "react-router-dom";
 import { createConsumer } from "@rails/actioncable";
 
-const Chat = () => {
-  const [messages, setMessages] = useState([]);
+const Chat = ({ loggedInUser, loggedInUserProfPic, loggedInUserUnreadMessages, setLoggedInUserUnreadMessages, messages, setMessages }) => {
+
   const [newMessage, setNewMessage] = useState("");
-  const [otherUser, setOtherUser] = useSate("");
+  const [otherUser, setOtherUser] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
+  const [otherUserProfPic, setOtherUserProfPic] = useState("");
   const params = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/api/v1/convesations/${params.id}`, {
-      method: "GET",
-      // headers: {
-      //  "Authorization": localStorage.token
-      // }
+    fetch(`http://localhost:4000/api/v1/conversations/${params.id}`, {
+      method: "GET"
     })
     .then(res => res.json())
     .then((data) => {
-      if (data.user_a_id === loggedInUser.id) {
-        setOtherUser(data.user_b.username);
-      } else {
-        setOtherUser(data.user_a.username);
+      let conversation;
+      if(!loggedInUser) {
+        return;
       }
-
-      setMessages(data.messages);
+      if (data.user_a_id === loggedInUser.id) {
+        conversation = loggedInUser.conversations.find(conversation => conversation.convo.id == params.id)
+        setOtherUser(conversation.user_b.id)
+        setOtherUserProfPic(conversation.user_b.picture)
+      } else {
+        conversation = loggedInUser.conversations.find(conversation => conversation.convo.id == params.id)
+        setOtherUser(conversation.user_a.id)
+        setOtherUserProfPic(conversation.user_a.picture)
+      }
+      setMessages(conversation.messages);
       setIsLoaded(true);
     })
   }, [params.id, loggedInUser.id])
@@ -39,13 +44,10 @@ const Chat = () => {
       channel: "ConversationChannel",
       id: params.id
     }
+
     const handlers = {
       received(data) {
-        setMessages([...messages, data]);
-        fetch(`http://localhost:4000/api/v1/messages/${data.message.id}`, {
-          method: "PATCH",
-          headers: {"content-type": "application/json"},
-        })
+        setMessages([...messages, data.message]);
       },
 
       connected() {
@@ -54,22 +56,14 @@ const Chat = () => {
 
       disconnected() {
         console.log("disconnected");
-        cable.current = null;
       }
     }
-    const subscription = cable.subscription.create(paramsToSend, handlers)
+    const subscription = cable.current.subscriptions.create(paramsToSend, handlers)
+  }, [params.id, messages, loggedInUser.id])
 
-    return function cleanup() {
-      console.log("unsubbing from ", params.id);
-      cable.current = null;
-      subscription.unsubscribe();
-    }
-  }, [params.id, messages, logginInUser.id])
 
   if (isLoaded) {
-    //add return value for message data
-    console.log(messages)
-    const messagesOrdered = [...messages].reverse()
+    const messagesOrdered = [...messages]
 
     const messageBubbles = messagesOrdered.map((message) => {
       if (message.user_id === loggedInUser.id) {
@@ -82,7 +76,7 @@ const Chat = () => {
       } else {
         return (
           <div className="receieved-message" key={message.id}>
-            <NavLink to={`/profile/${message.user_id}`}><img className="profile-badge convo" src={message.user_prof_pic} alt={message.user_username} /></NavLink>
+            <NavLink to={`/profile/${message.user_id}`}><img className="profile-badge convo" src={otherUserProfPic} alt={message.user_username} /></NavLink>
             <p className="receieved-message-temp">{message.content}</p>
           </div>
         )
@@ -96,8 +90,7 @@ const Chat = () => {
         const data = {
           content: newMessage,
           conversation_id: params.id,
-          user_id: loggedInUser.id,
-          read: false
+          user_id: loggedInUser.id
         }
 
         setNewMessage("")
@@ -105,13 +98,13 @@ const Chat = () => {
         fetch("http://localhost:4000/api/v1/messages", {
           method: "POST",
           headers: {
-            "content-type": "application/json",
-            "Authorization": loggedInUser.token
+            "content-type": "application/json"
           },
           body: JSON.stringify(data)
         })
       }
     }
+
     return (
       <section>
         <div className="page-content conversation-page">
