@@ -1,6 +1,6 @@
 describe('Dashboard', () => {
     it('As a user, when the page loads I should see a dashboard of user profiles', () => {
-        cy.intercept('GET', 'https://be-tribe.herokuapp.com/api/v1/users', {fixtures: 'allUsers.json'})
+        cy.intercept('GET', 'https://be-tribe.herokuapp.com/api/v1/users', {fixture: 'allUsers.json'})
         cy.visit('http://localhost:3000/')
         .get('div[class="user-card"]')
         .should(($div) => {
@@ -21,7 +21,7 @@ describe('Dashboard', () => {
         })
     })
     it('As a user, I should be able to filter by interestes to change my dashboard view', () => {
-        cy.intercept('GET', 'https://be-tribe.herokuapp.com/api/v1/users', {fixtures: 'allUsers.json'})
+        cy.intercept('GET', 'https://be-tribe.herokuapp.com/api/v1/users', {fixture: 'allUsers.json'})
         cy.visit('http://localhost:3000/')
         .get('select').select('nature')
         .should('have.value', 'nature')
@@ -37,8 +37,8 @@ describe('Dashboard', () => {
         })
     })
     it('As a user, I should be able to click on a user profile to see more about info for that user', () => {
-        cy.intercept('GET', 'https://be-tribe.herokuapp.com/api/v1/users', {fixtures: 'allUsers.json'})
-        cy.intercept('GET', `https://be-tribe.herokuapp.com/api/v1/users/*`, {fixtures: 'singleUser.json'})
+        cy.intercept('GET', 'https://be-tribe.herokuapp.com/api/v1/users', {fixture: 'allUsers.json'})
+        cy.intercept('GET', `https://be-tribe.herokuapp.com/api/v1/users/*`, {fixture: 'singleUser.json'})
         cy.visit('http://localhost:3000/')
         .get('div[class="user-card"]').first().click()
         .url().should('eq', 'http://localhost:3000/user')
