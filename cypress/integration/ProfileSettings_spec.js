@@ -1,5 +1,6 @@
 describe('Profile Settings', () => {
   beforeEach(() => {
+    cy.intercept('GET', 'https://be-tribe.herokuapp.com/api/v1/users', {fixture: 'allUsers.json'})
     const url = 'http://localhost:3000/settings'
     cy.visit(url)
   })
