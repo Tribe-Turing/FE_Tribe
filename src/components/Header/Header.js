@@ -13,7 +13,7 @@ const Header = () => {
           <Link to='/'>
             <button>home</button>
           </Link>
-          <Link to='/profile'>
+          <Link to='/profile/1'>
             <LoggedInUser />
           </Link>
         </>

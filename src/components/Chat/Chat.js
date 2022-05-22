@@ -11,23 +11,23 @@ const Chat = ({ loggedInUser, loggedInUserProfPic, loggedInUserUnreadMessages, s
   const params = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/api/v1/conversations/${params.id}`, {
+    fetch(`https://be-tribe.herokuapp.com/api/v1/conversations/${params.id}`, {
       method: "GET"
     })
     .then(res => res.json())
     .then((data) => {
       let conversation;
-      if(!loggedInUser) {
+      if(!localStorage.getItem('loggedInUserID')) {
         return;
       }
       if (data.user_a_id === loggedInUser.id) {
         conversation = loggedInUser.conversations.find(conversation => conversation.convo.id == params.id)
-        setOtherUser(conversation.user_b.id)
-        setOtherUserProfPic(conversation.user_b.picture)
-      } else {
-        conversation = loggedInUser.conversations.find(conversation => conversation.convo.id == params.id)
         setOtherUser(conversation.user_a.id)
         setOtherUserProfPic(conversation.user_a.picture)
+      } else {
+        conversation = loggedInUser.conversations.find(conversation => conversation.convo.id == params.id)
+        setOtherUser(conversation.user_b.id)
+        setOtherUserProfPic(conversation.user_b.picture)
       }
       setMessages(conversation.messages);
       setIsLoaded(true);
@@ -38,7 +38,7 @@ const Chat = ({ loggedInUser, loggedInUserProfPic, loggedInUserUnreadMessages, s
 
   useEffect(() => {
     if (!cable.current) {
-      cable.current = createConsumer("ws://localhost:4000/cable")
+      cable.current = createConsumer("wss://be-tribe.herokuapp.com/cable")
     }
     const paramsToSend = {
       channel: "ConversationChannel",
@@ -95,7 +95,7 @@ const Chat = ({ loggedInUser, loggedInUserProfPic, loggedInUserUnreadMessages, s
 
         setNewMessage("")
 
-        fetch("http://localhost:4000/api/v1/messages", {
+        fetch("https://be-tribe.herokuapp.com/api/v1/messages", {
           method: "POST",
           headers: {
             "content-type": "application/json"

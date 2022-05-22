@@ -14,6 +14,7 @@ const Dashboard = ({users}) => {
     }).map(user => {
         return(
             <UserCard
+                image={user.image}
                 id={user.id}
                 key={user.id}
                 username={user.first_name}
@@ -22,6 +23,7 @@ const Dashboard = ({users}) => {
     const userCards = users.map(user => {
         return(
             <UserCard
+                image={user.image}
                 id={user.id}
                 key={user.id}
                 username={user.first_name}
