@@ -25,7 +25,6 @@ function App() {
     const response = await apiCalls.fetchUsers();
     const data = await response.filter(profile => profile.id != userID);
     setUsers(data);
-    const id = localStorage.getItem('loggedInUserID')
     if (localStorage.getItem('loggedInUserID')) {
       getOneUser(localStorage.getItem('loggedInUserID'));
     }
