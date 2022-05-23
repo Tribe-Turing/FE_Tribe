@@ -1,12 +1,38 @@
 .user-card {
     box-sizing: border-box;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 3%;
-    padding: 1em;
+    /* padding: 1em; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    background: #009688;
+    border-radius: 15px;
+}
+
+a {
+  text-decoration: none;
 }
 
 .photo {
-    width: 30%;
+    width: 75px;
+    height: 100px;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.name-banner {
+  background: #E6B9CD;
+  color: black;
+  margin-bottom: 0%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.username {
+  margin: 5px;
 }
