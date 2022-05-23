@@ -39,7 +39,6 @@ function App() {
     setLoggedInUserProfPic(data.image);
   }
 
-
   useEffect(() => {
     getUsers();
   }, []);
@@ -87,7 +86,7 @@ function App() {
 
       <Route exact path='/chatlist'>
         <Header />
-        <OnlineProfiles />
+        {/* <OnlineProfiles /> */}
         <ChatList
           users={users}
           loggedInUser={loggedInUser}
