@@ -18,7 +18,6 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [messages, setMessages] = useState([]);
   const [loggedInUserProfPic, setLoggedInUserProfPic] = useState("");
-  // const [loggedInUserUnreadMessages, setLoggedInUserUnreadMessages] = useState([]);
   const [userID, setUserID] = useState(1);
   const [messageUser, setMessageUser] = useState('');
 
@@ -86,7 +85,6 @@ function App() {
 
       <Route exact path='/chatlist'>
         <Header />
-        {/* <OnlineProfiles /> */}
         <ChatList
           users={users}
           loggedInUser={loggedInUser}
