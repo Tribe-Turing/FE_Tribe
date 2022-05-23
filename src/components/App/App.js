@@ -46,6 +46,8 @@ function App() {
 
   return (
     <div>
+      <Header loggedInUser={loggedInUser}/>
+
       <Route exact path='/login/:id' render={({match}) => {
         localStorage.setItem('loggedInUserID', match.params.id)
         return (
@@ -64,7 +66,6 @@ function App() {
         let id = parseInt(match.params.id)
         return (
             <>
-              <Header />
               <UserProfile
                 id={id}
                 loggedInUser={loggedInUser}
@@ -77,7 +78,6 @@ function App() {
       }/>
 
       <Route exact path='/'>
-        <Header />
         <Dashboard
           users={users}
           setMessageUser={setMessageUser}
@@ -86,7 +86,6 @@ function App() {
       </Route>
 
       <Route exact path='/chatlist'>
-        <Header />
         <OnlineProfiles />
         <ChatList
           users={users}
@@ -97,13 +96,11 @@ function App() {
       </Route>
 
       <Route exact path='/messaging'>
-        <Header />
         <ChatWindow users={users} />
         <Nav />
       </Route>
 
       <Route exact path='/settings'>
-        <Header />
         <ProfileSettings />
         <Nav />
       </Route>
@@ -123,7 +120,6 @@ function App() {
       <Route exact path='/profile/:id' render={({match}) => {
         return (
           <>
-            <Header />
             <UserProfile
               id={match.params.id}
               loggedInUser={loggedInUser}
@@ -136,7 +132,6 @@ function App() {
 
       <Route exact path="/conversations/:id">
         <>
-          <Header />
           <Chat
             users={users}
             messages={messages}
@@ -147,6 +142,10 @@ function App() {
           />
           <Nav />
         </>
+      </Route>
+
+      <Route exact path={`/profile/${localStorage.getItem('loggedInUserID')}`}>
+        <LoggedInUser />
       </Route>
 
     </div>
