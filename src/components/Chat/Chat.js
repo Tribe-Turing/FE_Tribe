@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useParams, NavLink } from "react-router-dom";
 import { createConsumer } from "@rails/actioncable";
 
-const Chat = ({ loggedInUser, loggedInUserProfPic, loggedInUserUnreadMessages, setLoggedInUserUnreadMessages, messages, setMessages }) => {
+const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages, messageUser }) => {
 
   const [newMessage, setNewMessage] = useState("");
   const [otherUser, setOtherUser] = useState("");
@@ -11,28 +11,50 @@ const Chat = ({ loggedInUser, loggedInUserProfPic, loggedInUserUnreadMessages, s
   const params = useParams();
 
   useEffect(() => {
-    fetch(`https://be-tribe.herokuapp.com/api/v1/conversations/${params.id}`, {
-      method: "GET"
-    })
-    .then(res => res.json())
-    .then((data) => {
-      let conversation;
-      if(!localStorage.getItem('loggedInUserID')) {
-        return;
+    fetchConversation();
+  }, [params.id, loggedInUser.id])
+
+  const fetchConversation = async () => {
+    let data;
+    if (messageUser) {
+      data = {
+        user_a_id: loggedInUser.id,
+        user_b_id: messageUser,
+        id: params.id
       }
+    } else {
+      const response = await fetch(`https://be-tribe.herokuapp.com/api/v1/conversations/${params.id}`)
+      data = await response.json();
+    }
+
+    let otherUser;
+    let conversation;
+    if(!localStorage.getItem('loggedInUserID')) return;
+    if(!messageUser) {
       if (data.user_a_id === loggedInUser.id) {
         conversation = loggedInUser.conversations.find(conversation => conversation.convo.id == params.id)
-        setOtherUser(conversation.user_a.id)
-        setOtherUserProfPic(conversation.user_a.picture)
+        otherUser = conversation.user_a;
       } else {
         conversation = loggedInUser.conversations.find(conversation => conversation.convo.id == params.id)
-        setOtherUser(conversation.user_b.id)
-        setOtherUserProfPic(conversation.user_b.picture)
+        console.log(loggedInUser.conversations)
+        otherUser = conversation.user_b;
       }
-      setMessages(conversation.messages);
-      setIsLoaded(true);
-    })
-  }, [params.id, loggedInUser.id])
+    } else {
+      let user = users.find(u => u.id === messageUser)
+      otherUser = {
+        id: messageUser,
+        picture: user.image
+      }
+    }
+    if(!conversation) {
+      conversation = {messages: []};
+    }
+
+    setOtherUser(otherUser.id)
+    setOtherUserProfPic(otherUser.picture)
+    setMessages(conversation.messages);
+    setIsLoaded(true);
+  }
 
   const cable = useRef()
 
