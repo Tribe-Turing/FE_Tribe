@@ -1,5 +1,6 @@
 import React from 'react';
 import ChatCard from '../ChatCard/ChatCard';
+import loadingSpinner from '../../assets/loadingSpinner.gif';
 
 const ChatList = ({loggedInUser}) => {
     console.log(loggedInUser, '<<<liu')
@@ -13,7 +14,9 @@ const ChatList = ({loggedInUser}) => {
           }
       })
     } else {
-      chatCards = <div>Loading</div>
+      chatCards = (
+        <img className="loading-spinner" src={loadingSpinner}/>
+      )
     }
 
     return (

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useParams, NavLink } from "react-router-dom";
 import { createConsumer } from "@rails/actioncable";
+import loadingSpinner from '../../assets/loadingSpinner.gif';
 
 const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages, messageUser }) => {
 
@@ -146,9 +147,7 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
     )
   } else {
     return (
-      <div className="page-container">
-        <div className="page-content loading"></div>
-      </div>
+      <img className="loading-spinner" src={loadingSpinner}/>
     )
   }
 }
