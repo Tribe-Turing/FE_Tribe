@@ -1,0 +1,9 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+h1 {
+  display: inline;
+}
