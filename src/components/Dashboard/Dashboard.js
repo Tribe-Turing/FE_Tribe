@@ -4,7 +4,7 @@ import InterestSearchForm from '../InterestSearchForm/InterestSearchForm';
 import UserProfile from '../UserProfile/UserProfile';
 import './Dashboard.css'
 
-const Dashboard = ({users}) => {
+const Dashboard = ({users, setMessageUser}) => {
     const [currentInterest, setCurrentInterest] = useState('')
     const filterInterests = (interest) => {
         setCurrentInterest(interest)
@@ -18,6 +18,7 @@ const Dashboard = ({users}) => {
                 id={user.id}
                 key={user.id}
                 username={user.first_name}
+                setMessageUser={setMessageUser}
             />)
     })
     const userCards = users.map(user => {
@@ -27,6 +28,7 @@ const Dashboard = ({users}) => {
                 id={user.id}
                 key={user.id}
                 username={user.first_name}
+                setMessageUser={setMessageUser}
             />)
     })
     return (
