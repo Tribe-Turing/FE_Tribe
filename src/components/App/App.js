@@ -9,25 +9,26 @@ import OnlineProfiles from '../OnlineProfiles/OnlineProfiles';
 import ChatList from '../ChatList/ChatList';
 import ChatWindow from '../ChatWindow/ChatWindow';
 import Chat from '../Chat/Chat';
-
 import ProfileSettings from '../ProfileSettings/ProfileSettings';
 import LoggedInUser from '../LoggedInUser/LoggedInUser';
 import apiCalls from '../../apiCalls';
+
 function App() {
   const [users, setUsers] = useState([]);
-  const [loggedInUser, setLoggedInUser] = useState('');
+  const [loggedInUser, setLoggedInUser] = useState({});
   const [messages, setMessages] = useState([]);
   const [loggedInUserProfPic, setLoggedInUserProfPic] = useState("");
-  const [loggedInUserUnreadMessages, setLoggedInUserUnreadMessages] = useState([]);
+  // const [loggedInUserUnreadMessages, setLoggedInUserUnreadMessages] = useState([]);
   const [userID, setUserID] = useState(1);
+  const [messageUser, setMessageUser] = useState('');
 
   const getUsers = async () => {
     const response = await apiCalls.fetchUsers();
     const data = await response.filter(profile => profile.id != userID);
     setUsers(data);
     const id = localStorage.getItem('loggedInUserID')
-    if (localStorage.getItem('loggedInUserID')) {
-      getOneUser(localStorage.getItem('loggedInUserID'));
+    if (id) {
+      getOneUser(id);
     }
   }
 
@@ -37,6 +38,7 @@ function App() {
     setLoggedInUser(data);
     setLoggedInUserProfPic(data.image);
   }
+
 
   useEffect(() => {
     getUsers();
@@ -63,7 +65,11 @@ function App() {
         return (
             <>
               <Header />
-              <UserProfile id={id}/>
+              <UserProfile
+                id={id}
+                loggedInUser={loggedInUser}
+                setMessageUser={setMessageUser}
+              />
               <Nav />
             </>
           )
@@ -72,14 +78,21 @@ function App() {
 
       <Route exact path='/'>
         <Header />
-        <Dashboard users={users} />
+        <Dashboard
+          users={users}
+          setMessageUser={setMessageUser}
+        />
         <Nav />
       </Route>
 
       <Route exact path='/chatlist'>
         <Header />
         <OnlineProfiles />
-        <ChatList users={users} />
+        <ChatList
+          users={users}
+          loggedInUser={loggedInUser}
+          messageUser={messageUser}
+        />
         <Nav />
       </Route>
 
@@ -107,21 +120,33 @@ function App() {
         }
       }/> */}
 
-      <Route exact path='/profile/1'>
-        <Header />
-        <UserProfile id={1}/>
-        <Nav />
-      </Route>
+      <Route exact path='/profile/:id' render={({match}) => {
+        return (
+          <>
+            <Header />
+            <UserProfile
+              id={match.params.id}
+              loggedInUser={loggedInUser}
+            />
+            <Nav />
+          </>
+        )
+      }}
+      />
 
       <Route exact path="/conversations/:id">
-        <Chat
-          messages={messages}
-          setMessages={setMessages}
-          loggedInUser={loggedInUser}
-          loggedInUserProfPic={loggedInUserProfPic}
-          loggedInUserUnreadMessages={loggedInUserUnreadMessages}
-          setLoggedInUserUnreadMessages={setLoggedInUserUnreadMessages}
-        />
+        <>
+          <Header />
+          <Chat
+            users={users}
+            messages={messages}
+            setMessages={setMessages}
+            loggedInUser={loggedInUser}
+            loggedInUserProfPic={loggedInUserProfPic}
+            messageUser={messageUser}
+          />
+          <Nav />
+        </>
       </Route>
 
     </div>
