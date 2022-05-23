@@ -7,7 +7,9 @@ const UserCard = ({username, id, image, setMessageUser}) => {
         <Link to={`/user/${id}`}>
         <div className='user-card' key={id} onClick={() => setMessageUser(id)}>
             <img className="photo" src={image}/>
-            <p>{username}</p>
+            <div className='name-banner'>
+              <p className='username'>{username}</p>
+            </div>
         </div>
         </Link>
     )

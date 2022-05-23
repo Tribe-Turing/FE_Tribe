@@ -2,9 +2,7 @@ import React from "react";
 
 const LoggedInUser = () => {
     return (
-        <>
         <div>I am me</div>
-        </>
     )
 }
 
