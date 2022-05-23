@@ -13,7 +13,7 @@ const Header = () => {
           <Link to='/'>
             <button>home</button>
           </Link>
-          <Link to='/profile/1'>
+          <Link to={`/profile/${localStorage.getItem('loggedInUserID')}`}>
             <LoggedInUser />
           </Link>
         </header>
