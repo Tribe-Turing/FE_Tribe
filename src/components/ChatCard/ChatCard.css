@@ -1,0 +1,16 @@
+.chat-card {
+  width: 100px;
+  height: 100px;
+  display: flex;
+}
+
+.chat-image {
+  width: 100px;
+  height: 100px;
+  padding: 50px;
+}
+
+.portrait {
+  display: flex;
+  flex-direction: column;
+}

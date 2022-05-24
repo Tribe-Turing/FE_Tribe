@@ -19,7 +19,7 @@ const ChatList = ({loggedInUser}) => {
     }
 
     return (
-        <div>
+        <div className="chat-list">
             {chatCards}
         </div>
     )
