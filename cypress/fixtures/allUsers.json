@@ -3,7 +3,7 @@
     "first_name": "Susan",
     "last_name": "Smith",
     "pronouns": "she/her",
-    "image": "otter",
+    "image": "lion",
     "city": "Denver, CO",
     "interests": ["animals", "nature"],
     "bio": "I am lonely and have too many cats."
@@ -13,7 +13,7 @@
     "first_name": "Shelley",
     "last_name": "Smithe",
     "pronouns": "she/her",
-    "image": "otter",
+    "image": "arctic fox",
     "city": "Denver, CO",
     "interests": ["animals", "knitting"],
     "bio": "I am lonely and need more cats."
@@ -23,7 +23,7 @@
     "first_name": "Millie",
     "last name": "Millinson",
     "pronouns": "she/her",
-    "image": "otter",
+    "image": "cheetah",
     "city": "Denver, CO",
     "interests": ["nightlife", "video games"],
     "bio": "I love playing games and having fun!"
@@ -33,6 +33,7 @@
     "first_name": "Marti",
     "last name": "Duly",
     "pronoun": "he/him",
+    "image": "armadillo",
     "interests": [
         "technology",
         "nature"
@@ -45,6 +46,7 @@
     "first_name": "Sunny",
     "last name": "Frend",
     "pronoun": "he/him",
+    "image": "cheetah",
     "interests": [
         "music",
         "technology"
@@ -57,6 +59,7 @@
     "first_name": "Teodorico",
     "last name": "Clemerson",
     "pronoun": "he/him",
+    "image": "lion",
     "interests": [
         "music",
         "nature"
@@ -69,6 +72,7 @@
     "first_name": "Rhiamon",
     "last name": "Armand",
     "pronoun": "he/him",
+    "image": "armadillo",
     "interests": [
         "nature",
         "cooking"
@@ -81,6 +85,7 @@
     "first_name": "Marijo",
     "last name": "Sate",
     "pronoun": "he/him",
+    "image": "cheetah",
     "interests": [
         "music",
         "technology"
@@ -93,6 +98,7 @@
     "first_name": "Linell",
     "last name": "Tracy",
     "pronoun": "she/her",
+    "image": "penguin",
     "interests": [
         "cooking",
         "animals"
@@ -105,6 +111,7 @@
     "first_name": "Coleen",
     "last name": "Nealon",
     "pronoun": "she/her",
+    "image": "meercat",
     "interests": [
         "animals",
         "nature"
@@ -117,6 +124,7 @@
     "first_name": "Milissent",
     "last name": "Clutterbuck",
     "pronoun": "she/her",
+    "image": "arctic fox",
     "interests": [
         "nature"
     ],
@@ -128,6 +136,7 @@
     "first_name": "Solomon",
     "last name": "Daen",
     "pronoun": "he/him",
+    "image": "frog",
     "interests": [
         "fishing",
         "animals"
@@ -140,6 +149,7 @@
     "first_name": "Sarita",
     "last name": "Borsay",
     "pronoun": "she/her",
+    "image": "penguin",
     "interests": [
         "technology"
     ],
