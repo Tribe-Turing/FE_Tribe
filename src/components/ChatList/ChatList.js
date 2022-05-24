@@ -3,7 +3,6 @@ import ChatCard from '../ChatCard/ChatCard';
 import loadingSpinner from '../../assets/loadingSpinner.gif';
 
 const ChatList = ({loggedInUser}) => {
-    console.log(loggedInUser, '<<<liu')
     let chatCards;
     if (loggedInUser.id) {
       chatCards = loggedInUser.conversations.map((conversation, index) => {
