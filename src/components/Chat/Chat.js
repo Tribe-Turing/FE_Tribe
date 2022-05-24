@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useParams, NavLink } from "react-router-dom";
 import { createConsumer } from "@rails/actioncable";
 import loadingSpinner from '../../assets/loadingSpinner.gif';
+import animals from '../../animals';
 
 const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages, messageUser }) => {
 
@@ -34,11 +35,11 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
     if(!messageUser) {
       if (data.user_a_id === loggedInUser.id) {
         conversation = loggedInUser.conversations.find(conversation => conversation.convo.id == params.id)
-        otherUser = conversation.user_a;
+        otherUser = conversation.user_b;
       } else {
         conversation = loggedInUser.conversations.find(conversation => conversation.convo.id == params.id)
         console.log(loggedInUser.conversations)
-        otherUser = conversation.user_b;
+        otherUser = conversation.user_a;
       }
     } else {
       let user = users.find(u => u.id === messageUser)
@@ -93,13 +94,13 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
         return (
           <div className="sent-message" key={message.id}>
             <p className="sent-message-temp">{message.content}</p>
-            <NavLink to={`/profile/${loggedInUser.id}`}><img className="profile-badge convo" src={loggedInUserProfPic} alt={loggedInUser.username} /></NavLink>
+            <NavLink to={`/profile/${loggedInUser.id}`}><img className="profile-badge convo" src={animals[loggedInUserProfPic]} alt={loggedInUser.username} /></NavLink>
           </div>
         )
       } else {
         return (
           <div className="receieved-message" key={message.id}>
-            <NavLink to={`/profile/${message.user_id}`}><img className="profile-badge convo" src={otherUserProfPic} alt={message.user_username} /></NavLink>
+            <NavLink to={`/profile/${message.user_id}`}><img className="profile-badge convo" src={animals[otherUserProfPic]} alt={message.user_username} /></NavLink>
             <p className="receieved-message-temp">{message.content}</p>
           </div>
         )
