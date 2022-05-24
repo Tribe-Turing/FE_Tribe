@@ -14,9 +14,6 @@ const ProfileSettings = ({ loggedInUser }) => {
       ...profileSettings, [e.target.name]: e.target.value
     }))
 
-    if(e.target.name === 'pronouns') {
-
-    }
   }
 
   // const [location, setLocation] = useState('')
