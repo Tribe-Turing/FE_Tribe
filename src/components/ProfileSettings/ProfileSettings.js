@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 const ProfileSettings = ({ loggedInUser }) => {
   const [profileSettings, setProfileSettings] = useState({
-    bio: '',
-    city: '',
-    pronoun: '',
-    interests: [],
+    bio: loggedInUser.bio,
+    city: loggedInUser.city,
+    pronouns: loggedInUser.pronouns,
+    interests: loggedInUser.interests,
     selectedInterests: [],
   })
 
@@ -79,8 +79,8 @@ const ProfileSettings = ({ loggedInUser }) => {
         <p>Would you like to update your pronouns?</p>
         <input
           type='radio'
-          id='pronoun'
-          name='pronoun'
+          id='pronouns'
+          name='pronouns'
           value='she/her'
           onChange={(e) => updateProfileSettings(e)}
         />
