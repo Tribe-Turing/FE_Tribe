@@ -14,11 +14,11 @@
 }
 
 .chat-image {
-  height: 25vw;
+  width: 25vh;
 }
 
 .chat-name {
-  height: 25vw;
+  width: 25vh;
 }
 
 .message-container {
