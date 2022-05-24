@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import apiCalls from '../../apiCalls';
 import loadingSpinner from '../../assets/loadingSpinner.gif';
 import {Redirect, useHistory} from 'react-router-dom';
+import animals from '../../animals';
 
 const UserProfile = ({id, loggedInUser, setMessageUser}) => {
     const history = useHistory();
@@ -46,7 +47,7 @@ const UserProfile = ({id, loggedInUser, setMessageUser}) => {
     return (
         isLoading ? <img className="loading-spinner" src={loadingSpinner}/> :
         <div>
-            <img className="photo" src={details.image}/>
+            <img className="photo" src={animals[details.image]}/>
             <h2>{details.first_name}</h2>
             <p>{details.pronouns}</p>
             <p>{details.bio}</p>
