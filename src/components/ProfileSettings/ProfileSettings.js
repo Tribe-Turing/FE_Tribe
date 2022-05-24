@@ -2,68 +2,55 @@ import React, { useState } from 'react';
 import interestIcons from '../../interestIcons';
 import './ProfileSettings.css'
 
-const ProfileSettings = () => {
-  const [location, setLocation] = useState('')
-  const [pronoun, setPronoun] = useState('')
-  const [bio, setBio] = useState('')
-  const [selectedInterests, setSelectedInterests] = useState([])
-  const [interests, setInterests] = useState({
-    sports: false,
-    nature: false,
-    music: false,
-    night_life: false,
-    art: false,
-    cinema: false,
-    food: false,
-    video_game: false,
-    traveling: false,
-    networking: false
+const ProfileSettings = ({ loggedInUser, addSettings }) => {
+  const [profileSettings, setProfileSettings] = useState({
+    bio: loggedInUser.bio,
+    city: loggedInUser.city,
+    pronouns: loggedInUser.pronouns,
+    interests: loggedInUser.interests,
   })
 
-  const updateLocation = (e) => {
-    setLocation(e.target.value)
-  }
-
-  const updatePronoun = (e) => {
-    setPronoun(e.target.value)
-  }
-
-  const updateBio = (e) => {
-    setBio(e.target.value)
+  const updateProfileSettings = (e) => {
+    setProfileSettings(profileSettings => ({
+      ...profileSettings, [e.target.name]: e.target.value
+    }))
   }
 
   const updateInterests = (e) => {
-    if (e.target.checked) {
-      setInterests({...interests, [e.target.value]: true})
-      setSelectedInterests([...selectedInterests, e.target.value])
+    let updatedInterests
+    if (e.target.checked) { 
+      updatedInterests = [...profileSettings.interests, e.target.value]
     } else {
-      setInterests({ ...interests, [e.target.value]: false })
-      const removedIndex = selectedInterests.indexOf(e.target.value)
-      setSelectedInterests([
-        ...selectedInterests.slice(0, removedIndex),
-        ...selectedInterests.slice(removedIndex + 1)
-      ])
+      const removedIndex = profileSettings.interests.indexOf(e.target.value)
+      updatedInterests = [
+        ...profileSettings.interests.slice(0, removedIndex),
+        ...profileSettings.interests.slice(removedIndex + 1)
+      ]
     }
+    console.log(updatedInterests)
+    setProfileSettings(profileSettings => ({
+      ...profileSettings, [e.target.name]: updatedInterests
+    }))
   }
 
   const submitSettings = (e) => {
     e.preventDefault()
+    addSettings(profileSettings)
   }
 
   return(
     <div className='settings'>
       <h1>Edit Your Profile</h1>
-      <form className='settings-form' onSubmit={submitSettings}>
-        <div>
-          <label htmlFor='location'>Change location: </label>
-          <input
-            type='text'
-            placeholder='Denver, CO'
-            id='location'
-            name='location'
-            value={location}
-            onChange={(e) => updateLocation(e)}
-          />
+        <form className='settings-form' onSubmit={submitSettings}>
+        <label htmlFor='city'>Location: </label>
+        <input
+          type='text'
+          placeholder='Denver, CO'
+          id='city'
+          name='city'
+          value={profileSettings.city}
+          onChange={(e) => updateProfileSettings(e)}
+        />
         </div>
         <div className='pronoun-container'>
           <p>Would you like to update your pronouns?</p>
@@ -71,52 +58,57 @@ const ProfileSettings = () => {
             <div className='pronoun-radio'>
               <input
                 type='radio'
-                id='pronoun'
-                name='pronoun'
+                id='pronouns'
+                name='pronouns'
                 value='she/her'
-                onChange={(e) => updatePronoun(e)}
+                checked={profileSettings.pronouns === 'she/her' ? true : false}
+                onChange={(e) => updateProfileSettings(e)}
               />
-              <label htmlFor='pronoun'>she/her</label>
+              <label htmlFor='pronouns'>she/her</label>
             </div>
             <div className='pronoun-radio'>
               <input
                 type='radio'
-                id='pronoun'
-                name='pronoun'
+                id='pronouns'
+                name='pronouns'
                 value='he/him'
-                onChange={(e) => updatePronoun(e)}
+                checked={profileSettings.pronouns === 'he/him' ? true : false}
+                onChange={(e) => updateProfileSettings(e)}
               />
-              <label htmlFor='pronoun'>he/him</label>
+              <label htmlFor='pronouns'>he/him</label>
             </div>
             <div className='pronoun-radio'>
               <input
                 type='radio'
-                id='pronoun'
-                name='pronoun'
+                id='pronouns'
+                name='pronouns'
                 value='they/them'
-                onChange={(e) => updatePronoun(e)}
+                checked={profileSettings.pronouns === 'they/them' ? true : false}
+                onChange={(e) => updateProfileSettings(e)}
               />
-              <label htmlFor='pronoun'>they/them</label>
+              <label htmlFor='pronouns'>they/them</label>
             </div>
             <div className='pronoun-radio'>
               <input
                 type='radio'
-                id='pronoun'
-                name='pronoun'
+                id='pronouns'
+                name='pronouns'
                 value='ze/zie'
-                onChange={(e) => updatePronoun(e)}
+                checked={profileSettings.pronouns === 'ze/zie' ? true : false}
+                onChange={(e) => updateProfileSettings(e)}
               />
-              <label htmlFor='pronoun'>ze/zie</label>
+              <label htmlFor='pronouns'>ze/zie</label>
             </div>
             <div className='pronoun-radio'>
               <input
                 type='radio'
-                id='pronoun'
-                name='pronoun'
+                id='pronouns'
+                name='pronouns'
                 value='name'
-                onChange={(e) => updatePronoun(e)}
+                checked={profileSettings.pronouns === 'name' ? true : false}
+                onChange={(e) => updateProfileSettings(e)}
               />
-              <label htmlFor='pronoun'>name</label>
+              <label htmlFor='pronouns'>name</label>
             </div>
           </div>
         </div>
@@ -127,77 +119,146 @@ const ProfileSettings = () => {
           placeholder='What do you want to bring to tribe?'
           id='bio'
           name='bio'
-          value={bio}
-          onChange={(e) => updateBio(e)}
-          />
+          value={profileSettings.bio}
+          onChange={(e) => updateProfileSettings(e)}
+        />
         </div>
         <p>Would you like to update your interests?</p>
         <div className='interests-form'>
           <div className='interest-container'>
-            <input type='checkbox' id='sports' name='interests' value='sports' onChange={(e) => updateInterests(e)}/>
+            <input 
+              type='checkbox' 
+              id='sports' 
+              name='interests' 
+              value='sports' 
+              checked={profileSettings.interests.includes('sports') ? true : false}
+              onChange={(e) => updateInterests(e)}
+            />
             <label htmlFor='sports' className='interests'>
               <img src={interestIcons.sports} width="75" height="75" className="sports"/>
               <p>Sports</p>
             </label>
           </div>
           <div className='interest-container'>
-            <input type='checkbox' id='nature' name='interests' value='nature' onChange={(e) => updateInterests(e)}/>
+            <input 
+              type='checkbox' 
+              id='nature' 
+              name='interests' 
+              value='nature' 
+              checked={profileSettings.interests.includes('nature') ? true : false}
+              onChange={(e) => updateInterests(e)}
+            />
             <label htmlFor='nature' className='interests'>
               <img src={interestIcons.nature} width="75" height="75" className="nature"/>
               <p>Nature</p>
             </label>
           </div>
           <div className='interest-container'>
-            <input type='checkbox' id='music' name='interests' value='music' onChange={(e) => updateInterests(e)}/>
+            <input 
+              type='checkbox' 
+              id='music' 
+              name='interests' 
+              value='music' 
+              checked={profileSettings.interests.includes('music') ? true : false}
+              onChange={(e) => updateInterests(e)}
+            />
             <label htmlFor='music' className='interests'>
               <img src={interestIcons.music} width="75" height="75" className="music"/>
               <p>Music</p>
             </label>
           </div>
           <div className='interest-container'>
-            <input type='checkbox' id='nightlife' name='interests' value='night_life' onChange={(e) => updateInterests(e)}/>
+            <input 
+              type='checkbox' 
+              id='nightlife' 
+              name='interests' 
+              value='night_life' 
+              checked={profileSettings.interests.includes('nightlife') ? true : false}
+              onChange={(e) => updateInterests(e)}/>
             <label htmlFor='nightlife' className='interests'>
               <img src={interestIcons.nightlife} width="75" height="75" className="nightlife"/>
               <p>Night Life</p>
             </label>
           </div>
           <div className='interest-container'>
-            <input type='checkbox' id='art' name='interests' value='art' onChange={(e) => updateInterests(e)}/>
+            <input 
+              type='checkbox' 
+              id='art' 
+              name='interests' 
+              value='art' 
+              checked={profileSettings.interests.includes('art') ? true : false}
+              onChange={(e) => updateInterests(e)}
+            />
             <label htmlFor='art' className='interests'>
               <img src={interestIcons.art} width="75" height="75" className="art"/>
               <p>Art</p>
             </label>
           </div>
           <div className='interest-container'>
-            <input type='checkbox' id='cinema' name='interests' value='cinema' onChange={(e) => updateInterests(e)}/>
+            <input 
+              type='checkbox' 
+              id='cinema' 
+              name='interests' 
+              value='cinema' 
+              checked={profileSettings.interests.includes('cinema') ? true : false}
+              onChange={(e) => updateInterests(e)}
+            />
             <label htmlFor='cinema' className='interests'>
               <img src={interestIcons.cinema} width="75" height="75" className="cinema"/>
               <p>Cinema</p>
             </label>
           </div>
           <div className='interest-container'>
-            <input type='checkbox' id='food' name='interests' value='food' onChange={(e) => updateInterests(e)}/>
+            <input 
+              type='checkbox' 
+              id='food' 
+              name='interests' 
+              value='food' 
+              checked={profileSettings.interests.includes('food') ? true : false}
+              onChange={(e) => updateInterests(e)}
+            />
             <label htmlFor='food' className='interests'>
               <img src={interestIcons.food} width="75" height="75" className="food"/>
               <p>Food</p>
             </label>
           </div>
           <div className='interest-container'>
-            <input type='checkbox' id='videogames' name='interests' value='video_games' onChange={(e) => updateInterests(e)}/>
+            <input 
+              type='checkbox' 
+              id='videogames' 
+              name='interests' 
+              value='video_games'
+              checked={profileSettings.interests.includes('gaming') ? true : false}
+              onChange={(e) => updateInterests(e)}
+            />
             <label htmlFor='videogames' className='interests'>
               <img src={interestIcons.videogames} width="75" height="75" className="videogames"/>
               <p>Gaming</p>
             </label>
           </div>
           <div className='interest-container'>
-            <input type='checkbox' id='traveling' name='interests' value='traveling' onChange={(e) => updateInterests(e)}/>
+            <input 
+              type='checkbox' 
+              id='traveling' 
+              name='interests' 
+              value='traveling'
+              checked={profileSettings.interests.includes('traveling') ? true : false}
+              onChange={(e) => updateInterests(e)}
+            />
             <label htmlFor='traveling' className='interests'>
               <img src={interestIcons.travel} width="75" height="75" className="travel"/>
               <p>Traveling</p>
             </label>
           </div>
           <div className='interest-container'>
-            <input type='checkbox' id='networking' name='interests' value='networking' onChange={(e) => updateInterests(e)}/>
+            <input 
+              type='checkbox' 
+              id='networking' 
+              name='interests' 
+              value='networking'
+              checked={profileSettings.interests.includes('networking') ? true : false}
+              onChange={(e) => updateInterests(e)}
+            />
             <label htmlFor='networking' className='interests'>
               <img src={interestIcons.networking} width="75" height="75" className="networking"/>
               <p>Networking</p>

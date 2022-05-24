@@ -38,6 +38,10 @@ function App() {
     setLoggedInUserProfPic(data.image);
   }
 
+  const addSettings = (userSettings) => {
+    apiCalls.updateSettings(loggedInUser.id, userSettings)
+  }
+
   useEffect(() => {
     getUsers();
   }, []);
@@ -99,7 +103,10 @@ function App() {
       </Route>
 
       <Route exact path='/settings'>
-        <ProfileSettings />
+        <ProfileSettings 
+          loggedInUser={loggedInUser}
+          addSettings={addSettings}
+        />
         <Nav />
       </Route>
 
