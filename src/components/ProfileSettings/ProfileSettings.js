@@ -6,58 +6,30 @@ const ProfileSettings = ({ loggedInUser }) => {
     city: loggedInUser.city,
     pronouns: loggedInUser.pronouns,
     interests: loggedInUser.interests,
-    selectedInterests: [],
   })
 
   const updateProfileSettings = (e) => {
     setProfileSettings(profileSettings => ({
       ...profileSettings, [e.target.name]: e.target.value
     }))
-
   }
 
-  // const [location, setLocation] = useState('')
-  // const [pronoun, setPronoun] = useState('')
-  // const [bio, setBio] = useState('')
-  // const [selectedInterests, setSelectedInterests] = useState([])
-  // const [interests, setInterests] = useState({
-  //   sports: false,
-  //   nature: false,
-  //   music: false,
-  //   night_life: false,
-  //   art: false,
-  //   cinema: false,
-  //   food: false,
-  //   video_game: false,
-  //   traveling: false,
-  //   networking: false
-  // })
-  
-  // const updateLocation = (e) => {
-  //   setLocation(e.target.value)
-  // }
-
-  // const updatePronoun = (e) => {
-  //   setPronoun(e.target.value)
-  // }
-
-  // const updateBio = (e) => {
-  //   setBio(e.target.value)
-  // }
-
-  // const updateInterests = (e) => {
-  //   if (e.target.checked) {
-  //     setInterests({...interests, [e.target.value]: true})
-  //     setSelectedInterests([...selectedInterests, e.target.value])
-  //   } else {
-  //     setInterests({ ...interests, [e.target.value]: false })
-  //     const removedIndex = selectedInterests.indexOf(e.target.value)
-  //     setSelectedInterests([
-  //       ...selectedInterests.slice(0, removedIndex),
-  //       ...selectedInterests.slice(removedIndex + 1)
-  //     ])
-  //   }
-  // }
+  const updateInterests = (e) => {
+    let updatedInterests
+    if (e.target.checked) { 
+      updatedInterests = [...profileSettings.interests, e.target.value]
+    } else {
+      const removedIndex = profileSettings.interests.indexOf(e.target.value)
+      updatedInterests = [
+        ...profileSettings.interests.slice(0, removedIndex),
+        ...profileSettings.interests.slice(removedIndex + 1)
+      ]
+    }
+    console.log(updatedInterests)
+    setProfileSettings(profileSettings => ({
+      ...profileSettings, [e.target.name]: updatedInterests
+    }))
+  }
 
   const submitSettings = (e) => {
     e.preventDefault()
@@ -144,7 +116,8 @@ const ProfileSettings = ({ loggedInUser }) => {
           id='interests'
           name='interests'
           value='sports'
-          // onChange={(e) => updateInterests(e)}
+          checked={profileSettings.interests.includes('sports') ? true : false}
+          onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Sports</label>
 
@@ -153,7 +126,8 @@ const ProfileSettings = ({ loggedInUser }) => {
           id='interests'
           name='interests'
           value='nature'
-          // onChange={(e) => updateInterests(e)}
+          checked={profileSettings.interests.includes('nature') ? true : false}
+          onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Nature</label>
 
@@ -162,7 +136,8 @@ const ProfileSettings = ({ loggedInUser }) => {
           id='interests'
           name='interests'
           value='music'
-          // onChange={(e) => updateInterests(e)}
+          checked={profileSettings.interests.includes('music') ? true : false}
+          onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Music</label>
 
@@ -170,8 +145,9 @@ const ProfileSettings = ({ loggedInUser }) => {
           type='checkbox'
           id='interests'
           name='interests'
-          value='night_life'
-          // onChange={(e) => updateInterests(e)}
+          value='nightlife'
+          checked={profileSettings.interests.includes('nightlife') ? true : false}
+          onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Night Life</label>
 
@@ -180,7 +156,8 @@ const ProfileSettings = ({ loggedInUser }) => {
           id='interests'
           name='interests'
           value='art'
-          // onChange={(e) => updateInterests(e)}
+          checked={profileSettings.interests.includes('art') ? true : false}
+          onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Art</label>
 
@@ -189,7 +166,8 @@ const ProfileSettings = ({ loggedInUser }) => {
           id='interests'
           name='interests'
           value='cinema'
-          // onChange={(e) => updateInterests(e)}
+          checked={profileSettings.interests.includes('cinema') ? true : false}
+          onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Cinema</label>
 
@@ -198,7 +176,8 @@ const ProfileSettings = ({ loggedInUser }) => {
           id='interests'
           name='interests'
           value='food'
-          // onChange={(e) => updateInterests(e)}
+          checked={profileSettings.interests.includes('food') ? true : false}
+          onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Food</label>
 
@@ -206,17 +185,19 @@ const ProfileSettings = ({ loggedInUser }) => {
           type='checkbox'
           id='interests'
           name='interests'
-          value='video_games'
-          // onChange={(e) => updateInterests(e)}
+          value='gaming'
+          checked={profileSettings.interests.includes('gaming') ? true : false}
+          onChange={(e) => updateInterests(e)}
         />
-        <label htmlFor='interests'>Video Games</label>
+        <label htmlFor='interests'>Gaming</label>
 
         <input
           type='checkbox'
           id='interests'
           name='interests'
           value='traveling'
-          // onChange={(e) => updateInterests(e)}
+          checked={profileSettings.interests.includes('traveling') ? true : false}
+          onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Traveling</label>
 
@@ -225,7 +206,8 @@ const ProfileSettings = ({ loggedInUser }) => {
           id='interests'
           name='interests'
           value='networking'
-          // onChange={(e) => updateInterests(e)}
+          checked={profileSettings.interests.includes('networking') ? true : false}
+          onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Networking</label>
 
