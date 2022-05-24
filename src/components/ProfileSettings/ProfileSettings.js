@@ -13,10 +13,17 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
   })
 
   useEffect(() => {
-    if(loggedInUser) {
+    if(loggedInUser.id) {
+      console.log(loggedInUser)
+      setProfileSettings({
+        bio: loggedInUser.bio,
+        city: loggedInUser.city,
+        pronouns: loggedInUser.pronouns,
+        interests: loggedInUser.interests,
+      })
       setLoading(false)
     }
-  }, [])
+  }, [loggedInUser])
 
   const updateProfileSettings = (e) => {
     setProfileSettings(profileSettings => ({
@@ -47,7 +54,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
   }
 
   return(
-    isLoading ? <img className="loading-spinner" src={loadingSpinner}/> :
+    isLoading ? <div className="loading-spinner"><img src={loadingSpinner}/></div> :
     <div className='settings'>
       <h1>Edit Your Profile</h1>
         <form className='settings-form' onSubmit={submitSettings}>
