@@ -1,5 +1,7 @@
 header {
 background: #BAE6C3;
+position: fixed;
+width: 100%;
 }
 
 .profile-icon {
