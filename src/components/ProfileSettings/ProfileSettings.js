@@ -13,6 +13,10 @@ const ProfileSettings = ({ loggedInUser }) => {
     setProfileSettings(profileSettings => ({
       ...profileSettings, [e.target.name]: e.target.value
     }))
+
+    if(e.target.name === 'pronouns') {
+
+    }
   }
 
   // const [location, setLocation] = useState('')
@@ -66,7 +70,7 @@ const ProfileSettings = ({ loggedInUser }) => {
     <div>
       <h1>Edit Your Profile</h1>
       <form onSubmit={submitSettings}>
-        <label htmlFor='city'>Change location: </label>
+        <label htmlFor='city'>Location: </label>
         <input
           type='text'
           placeholder='Denver, CO'
@@ -92,45 +96,50 @@ const ProfileSettings = ({ loggedInUser }) => {
           id='pronouns'
           name='pronouns'
           value='she/her'
+          checked={profileSettings.pronouns === 'she/her' ? true : false}
           onChange={(e) => updateProfileSettings(e)}
         />
-        <label htmlFor='pronoun'>she/her</label>
+        <label htmlFor='pronouns'>she/her</label>
 
         <input
           type='radio'
-          id='pronoun'
-          name='pronoun'
+          id='pronouns'
+          name='pronouns'
           value='he/him'
+          checked={profileSettings.pronouns === 'he/him' ? true : false}
           onChange={(e) => updateProfileSettings(e)}
         />
-        <label htmlFor='pronoun'>he/him</label>
+        <label htmlFor='pronouns'>he/him</label>
 
         <input
           type='radio'
-          id='pronoun'
-          name='pronoun'
+          id='pronouns'
+          name='pronouns'
           value='they/them'
+          checked={profileSettings.pronouns === 'they/them' ? true : false}
           onChange={(e) => updateProfileSettings(e)}
         />
-        <label htmlFor='pronoun'>they/them</label>
+        <label htmlFor='pronouns'>they/them</label>
 
         <input
           type='radio'
-          id='pronoun'
-          name='pronoun'
+          id='pronouns'
+          name='pronouns'
           value='ze/zie'
+          checked={profileSettings.pronouns === 'ze/zie' ? true : false}
           onChange={(e) => updateProfileSettings(e)}
         />
-        <label htmlFor='pronoun'>ze/zie</label>
+        <label htmlFor='pronouns'>ze/zie</label>
 
         <input
           type='radio'
-          id='pronoun'
-          name='pronoun'
+          id='pronouns'
+          name='pronouns'
           value='name'
+          checked={profileSettings.pronouns === 'name' ? true : false}
           onChange={(e) => updateProfileSettings(e)}
         />
-        <label htmlFor='pronoun'>name</label>
+        <label htmlFor='pronouns'>name</label>
 
         <p>Would you like to update your interests?</p>
         <input
