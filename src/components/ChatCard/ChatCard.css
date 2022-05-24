@@ -1,16 +1,33 @@
 .chat-card {
-  width: 100px;
-  height: 100px;
+  width: 100vw;
+  height: 35vh;
   display: flex;
-}
-
-.chat-image {
-  width: 100px;
-  height: 100px;
-  padding: 50px;
+  align-items: stretch;
+  padding-top: 2em;
+  padding-bottom: 1em;
 }
 
 .portrait {
   display: flex;
   flex-direction: column;
+  background-color: #E6B9CD;
+}
+
+.chat-image {
+  height: 25vw;
+}
+
+.chat-name {
+  height: 25vw;
+}
+
+.message-container {
+  background-color: #009688;
+  height: 100%;
+  width: 100%;
+}
+
+.last-message {
+  padding: 1em;
+  width: 100%;
 }

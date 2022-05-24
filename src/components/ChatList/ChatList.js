@@ -1,6 +1,7 @@
 import React from 'react';
 import ChatCard from '../ChatCard/ChatCard';
 import loadingSpinner from '../../assets/loadingSpinner.gif';
+import './ChatList.css'
 
 const ChatList = ({loggedInUser}) => {
     let chatCards;

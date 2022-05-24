@@ -12,9 +12,11 @@ const ChatCard = ({conversation, id}) => {
             <div className='chat-card'>
                 <div className="portrait">
                     <img className="chat-image" src={animals[conversation.user_b.picture]}/>
-                    <p> {`${conversation.user_b.first_name} ${conversation.user_b.last_name}`} </p>
+                    <p className="chat-name"> {`${conversation.user_b.first_name} ${conversation.user_b.last_name}`} </p>
                 </div>
-                    <p> {msg.content} </p>
+                <div className="message-container">
+                    <p className="last-message"> {msg.content} </p>
+                </div>
             </div>
         )
     } else if (id === conversation.user_b.id) {
@@ -24,7 +26,9 @@ const ChatCard = ({conversation, id}) => {
                     <img className="chat-image" src={animals[conversation.user_a.picture]}/>
                     <p> {`${conversation.user_a.first_name} ${conversation.user_a.last_name}`} </p>
                 </div>
-                    <p> {msg.content} </p>
+                <div className="message-container">
+                    <p className="last-message"> {msg.content} </p>
+                </div>
             </div>
         )
     }
