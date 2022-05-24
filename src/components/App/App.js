@@ -64,27 +64,12 @@ function App() {
         )
       }} />
 
-      <Route exact path='/user/:id' render={( { match } ) => {
-        let id = parseInt(match.params.id)
-        return (
-            <>
-              <UserProfile
-                id={id}
-                loggedInUser={loggedInUser}
-                setMessageUser={setMessageUser}
-              />
-              <Nav />
-            </>
-          )
-        }
-      }/>
 
       <Route exact path='/'>
         <Dashboard
           users={users}
           setMessageUser={setMessageUser}
         />
-        <Nav />
       </Route>
 
       <Route exact path='/chatlist'>
@@ -94,43 +79,26 @@ function App() {
           loggedInUser={loggedInUser}
           messageUser={messageUser}
         />
-        <Nav />
       </Route>
 
       <Route exact path='/messaging'>
         <ChatWindow users={users} />
-        <Nav />
       </Route>
 
       <Route exact path='/settings'>
-        <ProfileSettings 
+        <ProfileSettings
           loggedInUser={loggedInUser}
           addSettings={addSettings}
         />
-        <Nav />
       </Route>
 
-      {/* <Route exact path='/profile/:id' render={( { match } ) => {
-        let id = parseInt(match.params.id)
+      <Route exact path='/user/:id' render={({match}) => {
         return (
-            <>
-              <Header />
-              <UserProfile id={id}/>
-              <Nav />
-            </>
-          )
-        }
-      }/> */}
-
-      <Route exact path='/profile/:id' render={({match}) => {
-        return (
-          <>
             <UserProfile
               id={match.params.id}
               loggedInUser={loggedInUser}
+              setMessageUser={setMessageUser}
             />
-            <Nav />
-          </>
         )
       }}
       />
@@ -145,14 +113,11 @@ function App() {
             loggedInUserProfPic={loggedInUserProfPic}
             messageUser={messageUser}
           />
-          <Nav />
         </>
       </Route>
-
-      <Route exact path={`/profile/${localStorage.getItem('loggedInUserID')}`}>
-        <LoggedInUser />
-      </Route>
-
+      <Nav />
+      <div className='bg'>
+      </div>
     </div>
   )
 }
