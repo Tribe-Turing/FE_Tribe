@@ -90,8 +90,14 @@ label {
   border-color: #009688;
 }
 
-#location {
+#city {
   font-family: 'Montserrat Alternates', sans-serif;
   text-align: center;
   border-color: #009688;
+}
+
+.loading-spinner {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
 }
