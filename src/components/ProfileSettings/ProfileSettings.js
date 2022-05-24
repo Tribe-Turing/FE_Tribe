@@ -76,6 +76,16 @@ const ProfileSettings = ({ loggedInUser }) => {
           onChange={(e) => updateProfileSettings(e)}
         />
 
+        <label htmlFor='bio'>Bio: </label>
+        <input
+          type='text'
+          placeholder='What do you want to bring to tribe?'
+          id='bio'
+          name='bio'
+          value={profileSettings.bio}
+          onChange={(e) => updateProfileSettings(e)}
+        />
+
         <p>Would you like to update your pronouns?</p>
         <input
           type='radio'
@@ -212,16 +222,6 @@ const ProfileSettings = ({ loggedInUser }) => {
           // onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Networking</label>
-
-        <label htmlFor='bio'>Bio: </label>
-        <input
-          type='text'
-          placeholder='What do you want to bring to tribe?'
-          id='bio'
-          name='bio'
-          value={profileSettings.bio}
-          onChange={(e) => updateProfileSettings(e)}
-        />
 
         <button className='submit-button'>Submit</button>
       </form>
