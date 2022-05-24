@@ -1,48 +1,62 @@
 import React, { useState } from 'react';
 
-const ProfileSettings = () => {
-  const [location, setLocation] = useState('')
-  const [pronoun, setPronoun] = useState('')
-  const [bio, setBio] = useState('')
-  const [selectedInterests, setSelectedInterests] = useState([])
-  const [interests, setInterests] = useState({
-    sports: false,
-    nature: false,
-    music: false,
-    night_life: false,
-    art: false,
-    cinema: false,
-    food: false,
-    video_game: false,
-    traveling: false,
-    networking: false
+const ProfileSettings = ({ loggedInUser }) => {
+  const [profileSettings, setProfileSettings] = useState({
+    bio: '',
+    city: '',
+    pronoun: '',
+    interests: [],
+    selectedInterests: [],
   })
+
+  const updateProfileSettings = (e) => {
+    setProfileSettings(profileSettings => ({
+      ...profileSettings, [e.target.name]: e.target.value
+    }))
+  }
+
+  // const [location, setLocation] = useState('')
+  // const [pronoun, setPronoun] = useState('')
+  // const [bio, setBio] = useState('')
+  // const [selectedInterests, setSelectedInterests] = useState([])
+  // const [interests, setInterests] = useState({
+  //   sports: false,
+  //   nature: false,
+  //   music: false,
+  //   night_life: false,
+  //   art: false,
+  //   cinema: false,
+  //   food: false,
+  //   video_game: false,
+  //   traveling: false,
+  //   networking: false
+  // })
   
-  const updateLocation = (e) => {
-    setLocation(e.target.value)
-  }
+  // const updateLocation = (e) => {
+  //   setLocation(e.target.value)
+  // }
 
-  const updatePronoun = (e) => {
-    setPronoun(e.target.value)
-  }
+  // const updatePronoun = (e) => {
+  //   setPronoun(e.target.value)
+  // }
 
-  const updateBio = (e) => {
-    setBio(e.target.value)
-  }
+  // const updateBio = (e) => {
+  //   setBio(e.target.value)
+  // }
 
-  const updateInterests = (e) => {
-    if (e.target.checked) {
-      setInterests({...interests, [e.target.value]: true})
-      setSelectedInterests([...selectedInterests, e.target.value])
-    } else {
-      setInterests({ ...interests, [e.target.value]: false })
-      const removedIndex = selectedInterests.indexOf(e.target.value)
-      setSelectedInterests([
-        ...selectedInterests.slice(0, removedIndex),
-        ...selectedInterests.slice(removedIndex + 1)
-      ])
-    }
-  }
+  // const updateInterests = (e) => {
+  //   if (e.target.checked) {
+  //     setInterests({...interests, [e.target.value]: true})
+  //     setSelectedInterests([...selectedInterests, e.target.value])
+  //   } else {
+  //     setInterests({ ...interests, [e.target.value]: false })
+  //     const removedIndex = selectedInterests.indexOf(e.target.value)
+  //     setSelectedInterests([
+  //       ...selectedInterests.slice(0, removedIndex),
+  //       ...selectedInterests.slice(removedIndex + 1)
+  //     ])
+  //   }
+  // }
 
   const submitSettings = (e) => {
     e.preventDefault()
@@ -52,14 +66,14 @@ const ProfileSettings = () => {
     <div>
       <h1>Edit Your Profile</h1>
       <form onSubmit={submitSettings}>
-        <label htmlFor='location'>Change location: </label>
+        <label htmlFor='city'>Change location: </label>
         <input
           type='text'
           placeholder='Denver, CO'
-          id='location'
-          name='location'
-          value={location}
-          onChange={(e) => updateLocation(e)}
+          id='city'
+          name='city'
+          value={profileSettings.city}
+          onChange={(e) => updateProfileSettings(e)}
         />
 
         <p>Would you like to update your pronouns?</p>
@@ -68,7 +82,7 @@ const ProfileSettings = () => {
           id='pronoun'
           name='pronoun'
           value='she/her'
-          onChange={(e) => updatePronoun(e)}
+          onChange={(e) => updateProfileSettings(e)}
         />
         <label htmlFor='pronoun'>she/her</label>
 
@@ -77,7 +91,7 @@ const ProfileSettings = () => {
           id='pronoun'
           name='pronoun'
           value='he/him'
-          onChange={(e) => updatePronoun(e)}
+          onChange={(e) => updateProfileSettings(e)}
         />
         <label htmlFor='pronoun'>he/him</label>
 
@@ -86,7 +100,7 @@ const ProfileSettings = () => {
           id='pronoun'
           name='pronoun'
           value='they/them'
-          onChange={(e) => updatePronoun(e)}
+          onChange={(e) => updateProfileSettings(e)}
         />
         <label htmlFor='pronoun'>they/them</label>
 
@@ -95,7 +109,7 @@ const ProfileSettings = () => {
           id='pronoun'
           name='pronoun'
           value='ze/zie'
-          onChange={(e) => updatePronoun(e)}
+          onChange={(e) => updateProfileSettings(e)}
         />
         <label htmlFor='pronoun'>ze/zie</label>
 
@@ -104,7 +118,7 @@ const ProfileSettings = () => {
           id='pronoun'
           name='pronoun'
           value='name'
-          onChange={(e) => updatePronoun(e)}
+          onChange={(e) => updateProfileSettings(e)}
         />
         <label htmlFor='pronoun'>name</label>
 
@@ -114,7 +128,7 @@ const ProfileSettings = () => {
           id='interests'
           name='interests'
           value='sports'
-          onChange={(e) => updateInterests(e)}
+          // onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Sports</label>
 
@@ -123,7 +137,7 @@ const ProfileSettings = () => {
           id='interests'
           name='interests'
           value='nature'
-          onChange={(e) => updateInterests(e)}
+          // onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Nature</label>
 
@@ -132,7 +146,7 @@ const ProfileSettings = () => {
           id='interests'
           name='interests'
           value='music'
-          onChange={(e) => updateInterests(e)}
+          // onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Music</label>
 
@@ -141,7 +155,7 @@ const ProfileSettings = () => {
           id='interests'
           name='interests'
           value='night_life'
-          onChange={(e) => updateInterests(e)}
+          // onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Night Life</label>
 
@@ -150,7 +164,7 @@ const ProfileSettings = () => {
           id='interests'
           name='interests'
           value='art'
-          onChange={(e) => updateInterests(e)}
+          // onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Art</label>
 
@@ -159,7 +173,7 @@ const ProfileSettings = () => {
           id='interests'
           name='interests'
           value='cinema'
-          onChange={(e) => updateInterests(e)}
+          // onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Cinema</label>
 
@@ -168,7 +182,7 @@ const ProfileSettings = () => {
           id='interests'
           name='interests'
           value='food'
-          onChange={(e) => updateInterests(e)}
+          // onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Food</label>
 
@@ -177,7 +191,7 @@ const ProfileSettings = () => {
           id='interests'
           name='interests'
           value='video_games'
-          onChange={(e) => updateInterests(e)}
+          // onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Video Games</label>
 
@@ -186,7 +200,7 @@ const ProfileSettings = () => {
           id='interests'
           name='interests'
           value='traveling'
-          onChange={(e) => updateInterests(e)}
+          // onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Traveling</label>
 
@@ -195,7 +209,7 @@ const ProfileSettings = () => {
           id='interests'
           name='interests'
           value='networking'
-          onChange={(e) => updateInterests(e)}
+          // onChange={(e) => updateInterests(e)}
         />
         <label htmlFor='interests'>Networking</label>
 
@@ -205,8 +219,8 @@ const ProfileSettings = () => {
           placeholder='What do you want to bring to tribe?'
           id='bio'
           name='bio'
-          value={bio}
-          onChange={(e) => updateBio(e)}
+          value={profileSettings.bio}
+          onChange={(e) => updateProfileSettings(e)}
         />
 
         <button className='submit-button'>Submit</button>
