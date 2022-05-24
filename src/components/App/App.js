@@ -99,7 +99,7 @@ function App() {
       </Route>
 
       <Route exact path='/settings'>
-        <ProfileSettings />
+        <ProfileSettings loggedInUser={loggedInUser}/>
         <Nav />
       </Route>
 
