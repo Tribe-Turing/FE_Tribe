@@ -1,0 +1,93 @@
+[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+}
+
+[type=checkbox] + label > img {
+  cursor: pointer;
+  margin-right: 0.5rem;
+  border-radius: 80%;
+}
+
+[type=checkbox]:checked + label > img {
+  outline: 5px solid #E6B9CD;
+}
+
+
+input[type="checkbox"] {
+	display:none;
+}
+
+.settings {
+  background-color: #6CBAEB;
+  padding-top: 5em;
+  padding-bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.interests-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pronoun-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pronouns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.pronoun-radio {
+  display: flex;
+}
+
+.interests {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-button {
+  font-family: 'Montserrat Alternates', sans-serif;
+  background: #009688;
+  height: 5vh;
+  width: 80vw;
+  border: none;
+  font-size: 1.25em;
+}
+
+#bio {
+  font-family: 'Montserrat Alternates', sans-serif;
+  height: 10vh;
+  width: 90vw;
+  text-align: center;
+  border-color: #009688;
+}
+
+#location {
+  font-family: 'Montserrat Alternates', sans-serif;
+  text-align: center;
+  border-color: #009688;
+}
