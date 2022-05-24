@@ -9,7 +9,7 @@ const Header = ({ loggedInUser }) => {
 
     return (
         <header>
-          <Link to={`/profile/${localStorage.getItem('loggedInUserID')}`}>
+          <Link to={`/user/${localStorage.getItem('loggedInUserID')}`}>
             <img className='profile-icon' src={animals[loggedInUser.image]}/>
           </Link>
           <div className='head'>
