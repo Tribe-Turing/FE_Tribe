@@ -13,6 +13,9 @@
   outline: 5px solid #E6B9CD;
 }
 
+[type=radio] {
+  cursor: pointer;
+}
 
 input[type="checkbox"] {
 	display:none;
@@ -76,6 +79,7 @@ label {
   width: 80vw;
   border: none;
   font-size: 1.25em;
+  cursor: pointer;
 }
 
 #bio {
