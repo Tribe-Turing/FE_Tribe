@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ProfileSettings = ({ loggedInUser }) => {
+const ProfileSettings = ({ loggedInUser, addSettings }) => {
   const [profileSettings, setProfileSettings] = useState({
     bio: loggedInUser.bio,
     city: loggedInUser.city,
@@ -33,6 +33,7 @@ const ProfileSettings = ({ loggedInUser }) => {
 
   const submitSettings = (e) => {
     e.preventDefault()
+    addSettings(profileSettings)
   }
 
   return(

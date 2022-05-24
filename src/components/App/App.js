@@ -38,6 +38,10 @@ function App() {
     setLoggedInUserProfPic(data.image);
   }
 
+  const addSettings = (settings) => {
+    console.log(settings)
+  }
+
   useEffect(() => {
     getUsers();
   }, []);
@@ -99,7 +103,10 @@ function App() {
       </Route>
 
       <Route exact path='/settings'>
-        <ProfileSettings loggedInUser={loggedInUser}/>
+        <ProfileSettings 
+          loggedInUser={loggedInUser}
+          addSettings={addSettings}
+        />
         <Nav />
       </Route>
 
