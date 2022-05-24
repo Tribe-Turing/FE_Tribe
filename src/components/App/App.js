@@ -38,8 +38,8 @@ function App() {
     setLoggedInUserProfPic(data.image);
   }
 
-  const addSettings = (settings) => {
-    console.log(settings)
+  const addSettings = (userSettings) => {
+    apiCalls.updateSettings(loggedInUser.id, userSettings)
   }
 
   useEffect(() => {
