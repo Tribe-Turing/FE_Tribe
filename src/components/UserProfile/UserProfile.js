@@ -3,6 +3,7 @@ import apiCalls from '../../apiCalls';
 import loadingSpinner from '../../assets/loadingSpinner.gif';
 import {Redirect, useHistory} from 'react-router-dom';
 import animals from '../../animals';
+import './UserProfile.css';
 
 const UserProfile = ({id, loggedInUser, setMessageUser}) => {
     const history = useHistory();
@@ -46,15 +47,20 @@ const UserProfile = ({id, loggedInUser, setMessageUser}) => {
 
     return (
         isLoading ? <img className="loading-spinner" src={loadingSpinner}/> :
-        <div>
+        <div className='profile-view'>
             <img className="photo" src={animals[details.image]}/>
-            <h2>{details.first_name}</h2>
-            <p>{details.pronouns}</p>
-            <p>{details.bio}</p>
-            <ul>
+            <h2 className='name'>{details.first_name}</h2>
+            <p className='user-pronouns'>{details.pronouns}</p>
+            <p className='city'>{details.city}</p>
+            <p className='bio-title'>Bio:</p>
+            <p className='bio'>{details.bio}</p>
+            <p className='interests-title'>Interests:</p>
+            <ul className='user-interests'>
             {details.interests.map((interest, index) => <li key={index}>{interest}</li>)}
             </ul>
-            <button className='message-user' onClick={() => messageUser()}>Message {details.first_name}</button>
+            {loggedInUser.id === id ? '' :
+              <button className='message-user' onClick={() => messageUser()}>Message {details.first_name}</button>
+            }
         </div>
     )
 }
