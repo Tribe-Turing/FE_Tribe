@@ -1,14 +1,16 @@
 .chat-card {
   width: 100vw;
-  height: 35vh;
+  height: 15vh;
   display: flex;
   align-items: stretch;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: #009688;
 }
 
 .chat-image {
-  width: 35vh;
+  width: 15vh;
+  border-radius: 80%;
 }
 
 .chat-name {
@@ -16,12 +18,15 @@
   padding: 0.5em;
   box-sizing: border-box;
   background-color: #E6B9CD;
+  margin-top: 0;
+  font-size: 1em;
 }
 
 .message-container {
   background-color: #009688;
   height: 100%;
   width: 100%;
+  
 }
 
 .message-container:hover {
@@ -33,4 +38,23 @@
   padding: 0 0.5em;
   box-sizing: border-box;
   width: 100%;
+  font-size: 1em;
+}
+
+@media (min-width: 600px) {
+  .chat-image {
+    width: 35vh;
+  }
+  .chat-card {
+    height: 35vh;
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  .chat-name {
+    text-align: center;
+    font-size: 1.7em;
+  }
+  .last-message {
+    font-size: 1.6em;
+  }
 }
