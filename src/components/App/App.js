@@ -7,7 +7,6 @@ import UserProfile from '../UserProfile/UserProfile';
 import Header from '../Header/Header';
 import OnlineProfiles from '../OnlineProfiles/OnlineProfiles';
 import ChatList from '../ChatList/ChatList';
-import ChatWindow from '../ChatWindow/ChatWindow';
 import Chat from '../Chat/Chat';
 import ProfileSettings from '../ProfileSettings/ProfileSettings';
 import LoggedInUser from '../LoggedInUser/LoggedInUser';
@@ -79,10 +78,6 @@ function App() {
           loggedInUser={loggedInUser}
           messageUser={messageUser}
         />
-      </Route>
-
-      <Route exact path='/messaging'>
-        <ChatWindow users={users} />
       </Route>
 
       <Route exact path='/settings'>
