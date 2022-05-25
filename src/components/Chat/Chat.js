@@ -39,7 +39,6 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
         otherUser = conversation.user_b;
       } else {
         conversation = loggedInUser.conversations.find(conversation => conversation.convo.id == params.id)
-        console.log(loggedInUser.conversations)
         otherUser = conversation.user_a;
       }
     } else {
@@ -53,7 +52,7 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
       conversation = {messages: []};
     }
 
-    setOtherUser(otherUser.id)
+    setOtherUser(otherUser)
     setOtherUserProfPic(otherUser.picture)
     setMessages(conversation.messages);
     setIsLoaded(true);
@@ -136,8 +135,8 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
 
     return (
       <section className="chat-view">
+        <h1 className="profile-h1 username" id="chat">{`Chat with ${otherUser.first_name} ${otherUser.last_name}`}</h1>
         <div className="page-content conversation-page">
-          {/* <h1 className="profile-h1 username" id="chat">{otherUser}</h1> */}
           <div className="line info-panel"></div>
           <div className="messages-container">
             {messageBubbles}
