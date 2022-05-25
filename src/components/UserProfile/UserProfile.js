@@ -48,7 +48,7 @@ const UserProfile = ({id, loggedInUser, setMessageUser}) => {
     return (
         isLoading ? <img className="loading-spinner" src={loadingSpinner}/> :
         <div className='profile-view'>
-            <img className="photo" src={animals[details.image]}/>
+            <img className="photo" src={animals[details.image]} alt="Your Profile Photo"/>
             <div className="profile-details">
               <h2 className='name'>{details.first_name}</h2>
               <p className='user-pronouns'>{details.pronouns}</p>

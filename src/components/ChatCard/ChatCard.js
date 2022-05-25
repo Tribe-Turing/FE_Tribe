@@ -18,7 +18,7 @@ const ChatCard = ({conversation, id}) => {
         return (
             <div className='chat-card'>
                 <Link to={`/user/${conversation.user_b.id}`}>
-                    <img className="chat-image" src={animals[conversation.user_b.picture]}/>
+                    <img className="chat-image" src={animals[conversation.user_b.picture]} alt="Profile Icon"/>
                 </Link>
                 <div className="message-container" onClick={() => openMessage()}>
                     <p className="chat-name"> {`${conversation.user_b.first_name} ${conversation.user_b.last_name}`} </p>

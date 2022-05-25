@@ -6,13 +6,13 @@ const Nav = () => {
     return (
         <nav>
           <Link to='/'>
-            <button className="home-button"><i className='fa fa-house'></i></button>
+            <button aria-label="Home Button" className="home-button"><i className='fa fa-house' aria-hidden="true"></i></button>
           </Link>
           <Link to="/chatlist">
-            <button className="chat-button"><i className='fa fa-comment'></i></button>
+            <button aria-label="Chat Button" className="chat-button"><i className='fa fa-comment' aria-hidden="true"></i></button>
           </Link>
           <Link to='/settings'>
-            <button className="settings-button"><i className='fa fa-gears'></i></button>
+            <button aria-label="Settings Button" className="settings-button"><i className='fa fa-gears' aria-hidden="true"></i></button>
           </Link>
         </nav>
     )
