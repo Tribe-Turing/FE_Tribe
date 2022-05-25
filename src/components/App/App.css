@@ -1,13 +1,13 @@
 header + div {
-  padding-bottom: 4em;
-  padding-top: 5em;
-  height: calc(100vh - 7em);
+  padding-bottom: 7em;
+  padding-top: 7em;
 }
+
 .bg {
   background: #6CBAEB;
   width: 100vw;
   height: 100vh;
-  position: fixed;
+  position: absolute;
   z-index: -10;
   top: 0;
   left: 0;
