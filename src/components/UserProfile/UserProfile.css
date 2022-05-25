@@ -1,6 +1,13 @@
 .photo {
   width: 80%;
   height: auto;
+  border-radius: 500px;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile-view {
@@ -45,8 +52,23 @@
   font-family: 'Montserrat Alternates', sans-serif;
   background: #009688;
   height: 5vh;
-  width: 80vw;
+  width: 80%;
   border: none;
   font-size: 1.25em;
   cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .photo, .profile-details {
+    width: 40%;
+  }
+  .photo {
+    margin-left: 10%;
+  }
+  .profile-details {
+    margin-right: 10%;
+  }
+  .profile-view {
+    flex-direction: row;
+  }
 }
