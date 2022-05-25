@@ -7,14 +7,8 @@
   padding-bottom: 1em;
 }
 
-/* .portrait {
-  display: flex;
-  flex-direction: column;
-  background-color: #E6B9CD;
-} */
-
 .chat-image {
-  width: 30vh;
+  width: 35vh;
 }
 
 .chat-name {
