@@ -1,7 +1,7 @@
 import React from 'react';
 import animals from '../../animals';
 import './ChatCard.css'
-import {useHistory} from 'react-router-dom';
+import {useHistory, Link} from 'react-router-dom';
 
 const ChatCard = ({conversation, id}) => {
     
@@ -17,7 +17,9 @@ const ChatCard = ({conversation, id}) => {
     if (id === conversation.user_a.id) {
         return (
             <div className='chat-card'>
-                <img className="chat-image" src={animals[conversation.user_b.picture]}/>
+                <Link to={`/user/${conversation.user_b.id}`}>
+                    <img className="chat-image" src={animals[conversation.user_b.picture]}/>
+                </Link>
                 <div className="message-container" onClick={() => openMessage()}>
                     <p className="chat-name"> {`${conversation.user_b.first_name} ${conversation.user_b.last_name}`} </p>
                     <p className="last-message"> {msg.content} </p>
@@ -27,7 +29,9 @@ const ChatCard = ({conversation, id}) => {
     } else if (id === conversation.user_b.id) {
         return (
             <div className='chat-card'>
-                <img className="chat-image" src={animals[conversation.user_a.picture]}/>
+                <Link to={`/user/${conversation.user_a.id}`}>
+                    <img className="chat-image" src={animals[conversation.user_a.picture]}/>
+                </Link>
                 <div className="message-container">
                     <p className="chat-name"> {`${conversation.user_a.first_name} ${conversation.user_a.last_name}`} </p>
                     <p className="last-message"> {msg.content} </p>

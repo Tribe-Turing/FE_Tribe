@@ -90,10 +90,10 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
   if (isLoaded) {
     const messagesOrdered = [...messages]
 
-    const messageBubbles = messagesOrdered.map((message) => {
+    const messageBubbles = messagesOrdered.map((message, index) => {
       if (message.user_id === loggedInUser.id) {
         return (
-          <div className="sent-line">
+          <div className="sent-line" key={index}>
             <div className="sent-message" key={message.id}>
               <p className="sent-message-p">{message.content}</p>
               <NavLink to={`/profile/${loggedInUser.id}`}><img className="profile-badge convo" src={animals[loggedInUserProfPic]} alt={loggedInUser.username} /></NavLink>
@@ -102,7 +102,7 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
         )
       } else {
         return (
-          <div className="received-line">
+          <div className="received-line" key={index}>
             <div className="received-message" key={message.id}>
               <NavLink to={`/profile/${message.user_id}`}><img className="profile-badge convo" src={animals[otherUserProfPic]} alt={message.user_username} /></NavLink>
               <p className="received-message-p">{message.content}</p>
