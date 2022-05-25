@@ -59,6 +59,8 @@
 
 .message-form {
   width: 100vw;
+  position: fixed;
+  top: 80vh;
 }
 
 .message-input {
