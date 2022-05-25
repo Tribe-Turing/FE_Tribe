@@ -74,6 +74,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
           <div className='pronouns'>
             <div className='pronoun-radio'>
               <input
+                aria-label='she/her pronouns'
                 type='radio'
                 id='pronouns'
                 name='pronouns'
@@ -85,6 +86,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
             </div>
             <div className='pronoun-radio'>
               <input
+                aria-label='he/him pronouns'
                 type='radio'
                 id='pronouns'
                 name='pronouns'
@@ -96,6 +98,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
             </div>
             <div className='pronoun-radio'>
               <input
+                aria-label='they/them pronouns'
                 type='radio'
                 id='pronouns'
                 name='pronouns'
@@ -107,6 +110,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
             </div>
             <div className='pronoun-radio'>
               <input
+                aria-label='ze/zie pronouns'
                 type='radio'
                 id='pronouns'
                 name='pronouns'
@@ -118,6 +122,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
             </div>
             <div className='pronoun-radio'>
               <input
+                aria-label='use your name without pronouns'
                 type='radio'
                 id='pronouns'
                 name='pronouns'
