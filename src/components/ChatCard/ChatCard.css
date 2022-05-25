@@ -1,0 +1,36 @@
+.chat-card {
+  width: 100vw;
+  height: 35vh;
+  display: flex;
+  align-items: stretch;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.chat-image {
+  width: 35vh;
+}
+
+.chat-name {
+  width: 100%;
+  padding: 0.5em;
+  box-sizing: border-box;
+  background-color: #E6B9CD;
+}
+
+.message-container {
+  background-color: #009688;
+  height: 100%;
+  width: 100%;
+}
+
+.message-container:hover {
+  cursor: pointer;
+}
+
+.last-message {
+  margin: 1em 0;
+  padding: 0 0.5em;
+  box-sizing: border-box;
+  width: 100%;
+}

@@ -1,9 +1,10 @@
 import React from 'react';
 import ChatCard from '../ChatCard/ChatCard';
 import loadingSpinner from '../../assets/loadingSpinner.gif';
+import './ChatList.css'
 
 const ChatList = ({loggedInUser}) => {
-    let chatCards;
+  let chatCards;
     if (loggedInUser.id) {
       chatCards = loggedInUser.conversations.map((conversation, index) => {
           if (loggedInUser.id === conversation.user_a.id) {
@@ -19,7 +20,7 @@ const ChatList = ({loggedInUser}) => {
     }
 
     return (
-        <div>
+        <div className="chat-list">
             {chatCards}
         </div>
     )
