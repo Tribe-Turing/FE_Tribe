@@ -146,7 +146,7 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
         </div>
           <div className="message-form">
             <form onSubmit={handleSubmit}>
-              <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="message-input"/>
+              <input aria-label="Chat Message Input Field" type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="message-input"/>
               <button type="submit" className="message-button">Send</button>
             </form>
           </div>
