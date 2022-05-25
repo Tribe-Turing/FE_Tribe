@@ -17,7 +17,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [messages, setMessages] = useState([]);
   const [loggedInUserProfPic, setLoggedInUserProfPic] = useState("");
-  const [userID, setUserID] = useState(1);
+  // const [userID, setUserID] = useState(1);
   const [messageUser, setMessageUser] = useState('');
 
   const getUsers = async () => {
@@ -39,6 +39,7 @@ function App() {
 
   const addSettings = (userSettings) => {
     apiCalls.updateSettings(loggedInUser.id, userSettings)
+    getOneUser(loggedInUser.id);
   }
 
   useEffect(() => {

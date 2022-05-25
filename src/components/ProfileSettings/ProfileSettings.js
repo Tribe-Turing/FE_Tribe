@@ -2,8 +2,15 @@ import React, { useState, useEffect } from 'react';
 import interestIcons from '../../interestIcons';
 import './ProfileSettings.css';
 import loadingSpinner from '../../assets/loadingSpinner.gif';
+import { Link, useHistory } from 'react-router-dom';
 
 const ProfileSettings = ({ loggedInUser, addSettings }) => {
+  const history = useHistory();
+
+  const showProfile = () => {
+    return history.push(`/user/${loggedInUser.id}`)
+  }
+  
   const [isLoading, setLoading] = useState(true);
   const [profileSettings, setProfileSettings] = useState({
     bio: loggedInUser.bio,
@@ -13,15 +20,14 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
   })
 
   useEffect(() => {
-    if(loggedInUser.id) {
-      console.log(loggedInUser)
+    if (loggedInUser.id) {
       setProfileSettings({
         bio: loggedInUser.bio,
         city: loggedInUser.city,
         pronouns: loggedInUser.pronouns,
         interests: loggedInUser.interests,
       })
-      setLoading(false)
+      setLoading(false);
     }
   }, [loggedInUser])
 
@@ -48,8 +54,9 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
   }
 
   const submitSettings = (e) => {
-    e.preventDefault()
-    addSettings(profileSettings)
+    e.preventDefault();
+    addSettings(profileSettings);
+    showProfile();
   }
 
   return(
