@@ -136,6 +136,7 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
     }
 
     return (
+      <>
       <section className="chat-view">
         <h1 className="profile-h1 username" id="chat">{`Chat with ${otherUser.first_name} ${otherUser.last_name}`}</h1>
         <div className="page-content conversation-page">
@@ -144,14 +145,14 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
             {messageBubbles}
           </div>
         </div>
-          <div className="message-form">
-            <form onSubmit={handleSubmit}>
-              <input aria-label="Chat Message Input Field" type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="message-input"/>
-              <button type="submit" className="message-button">Send</button>
-            </form>
-          </div>
-
       </section>
+      <div className="message-form">
+        <form onSubmit={handleSubmit}>
+          <input aria-label="Chat Message Input Field" type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="message-input"/>
+          <button type="submit" className="message-button">Send</button>
+        </form>
+      </div>
+      </>
     )
   } else {
     return (
