@@ -24,6 +24,10 @@
   width: 100%;
 }
 
+.message-container:hover {
+  cursor: pointer;
+}
+
 .last-message {
   margin: 1em 0;
   padding: 0 0.5em;
