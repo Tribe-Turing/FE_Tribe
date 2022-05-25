@@ -1,3 +1,74 @@
 .photo {
-  width: 100%;
+  width: 80%;
+  height: auto;
+  border-radius: 500px;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-view {
+  background: #6CBAEB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name, .city, .user-pronouns, .bio {
+  margin: .5em;
+}
+
+.bio {
+  border-radius: 5px;
+  margin-top: 0;
+}
+
+.bio-title, .interests-title {
+  margin-bottom: 5px;
+  margin: 0;
+  margin-top: .5em;
+}
+
+.user-interests {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 25px;
+  margin-top: 0;
+}
+
+.user-pronouns {
+  margin-top: 0;
+}
+
+.name {
+  margin-bottom: 0;
+}
+
+.message-user {
+  margin-top: 2em;
+  font-family: 'Montserrat Alternates', sans-serif;
+  background: #009688;
+  height: 5vh;
+  width: 80%;
+  border: none;
+  font-size: 1.25em;
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .photo, .profile-details {
+    width: 40%;
+  }
+  .photo {
+    margin-left: 10%;
+  }
+  .profile-details {
+    margin-right: 10%;
+  }
+  .profile-view {
+    flex-direction: row;
+  }
 }
