@@ -72,7 +72,6 @@ function App() {
       </Route>
 
       <Route exact path='/chatlist'>
-
         <ChatList
           users={users}
           loggedInUser={loggedInUser}

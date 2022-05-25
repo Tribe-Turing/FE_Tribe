@@ -59,7 +59,7 @@ const UserProfile = ({id, loggedInUser, setMessageUser}) => {
               <ul className='user-interests'>
               {details.interests.map((interest, index) => <li key={index}>{interest}</li>)}
               </ul>
-              {loggedInUser.id === id ? '' :
+              {loggedInUser.id == id ? '' :
                 <button className='message-user' onClick={() => messageUser()}>Message {details.first_name}</button>
               }
             </div>
