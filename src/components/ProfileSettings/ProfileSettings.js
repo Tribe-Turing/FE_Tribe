@@ -152,7 +152,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
               onChange={(e) => updateInterests(e)}
             />
             <label htmlFor='sports' className='interests'>
-              <img src={interestIcons.sports} width="75" height="75" className="sports"/>
+              <img src={interestIcons.sports} width="75" height="75" className="sports" alt="Sports Interest Toggle Button"/>
               <p>Sports</p>
             </label>
           </div>
@@ -166,7 +166,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
               onChange={(e) => updateInterests(e)}
             />
             <label htmlFor='nature' className='interests'>
-              <img src={interestIcons.nature} width="75" height="75" className="nature"/>
+              <img src={interestIcons.nature} width="75" height="75" className="nature" alt="Nature Interest Toggle Button"/>
               <p>Nature</p>
             </label>
           </div>
@@ -180,7 +180,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
               onChange={(e) => updateInterests(e)}
             />
             <label htmlFor='music' className='interests'>
-              <img src={interestIcons.music} width="75" height="75" className="music"/>
+              <img src={interestIcons.music} width="75" height="75" className="music" alt="Music Interest Toggle Button"/>
               <p>Music</p>
             </label>
           </div>
@@ -193,7 +193,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
               checked={profileSettings.interests.includes('nightlife') ? true : false}
               onChange={(e) => updateInterests(e)}/>
             <label htmlFor='nightlife' className='interests'>
-              <img src={interestIcons.nightlife} width="75" height="75" className="nightlife"/>
+              <img src={interestIcons.nightlife} width="75" height="75" className="nightlife" alt="Night Life Interest Toggle Button"/>
               <p>Night Life</p>
             </label>
           </div>
@@ -207,7 +207,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
               onChange={(e) => updateInterests(e)}
             />
             <label htmlFor='art' className='interests'>
-              <img src={interestIcons.art} width="75" height="75" className="art"/>
+              <img src={interestIcons.art} width="75" height="75" className="art" alt="Art Interest Toggle Button"/>
               <p>Art</p>
             </label>
           </div>
@@ -221,7 +221,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
               onChange={(e) => updateInterests(e)}
             />
             <label htmlFor='cinema' className='interests'>
-              <img src={interestIcons.cinema} width="75" height="75" className="cinema"/>
+              <img src={interestIcons.cinema} width="75" height="75" className="cinema" alt="Cinema Interest Toggle Button"/>
               <p>Cinema</p>
             </label>
           </div>
@@ -235,7 +235,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
               onChange={(e) => updateInterests(e)}
             />
             <label htmlFor='food' className='interests'>
-              <img src={interestIcons.food} width="75" height="75" className="food"/>
+              <img src={interestIcons.food} width="75" height="75" className="food" alt="Food Interest Toggle Button"/>
               <p>Food</p>
             </label>
           </div>
@@ -249,7 +249,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
               onChange={(e) => updateInterests(e)}
             />
             <label htmlFor='gaming' className='interests'>
-              <img src={interestIcons.videogames} width="75" height="75" className="videogames"/>
+              <img src={interestIcons.videogames} width="75" height="75" className="videogames" alt="Video Games Interest Toggle Button"/>
               <p>Gaming</p>
             </label>
           </div>
@@ -263,7 +263,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
               onChange={(e) => updateInterests(e)}
             />
             <label htmlFor='traveling' className='interests'>
-              <img src={interestIcons.travel} width="75" height="75" className="travel"/>
+              <img src={interestIcons.travel} width="75" height="75" className="travel" alt="Travel Interest Toggle Button"/>
               <p>Traveling</p>
             </label>
           </div>
@@ -277,7 +277,7 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
               onChange={(e) => updateInterests(e)}
             />
             <label htmlFor='networking' className='interests'>
-              <img src={interestIcons.networking} width="75" height="75" className="networking"/>
+              <img src={interestIcons.networking} width="75" height="75" className="networking" alt="Networking Interest Toggle Button"/>
               <p>Networking</p>
             </label>
           </div>
