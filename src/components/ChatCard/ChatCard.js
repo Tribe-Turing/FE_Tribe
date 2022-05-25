@@ -10,11 +10,9 @@ const ChatCard = ({conversation, id}) => {
     if (id === conversation.user_a.id) {
         return (
             <div className='chat-card'>
-                <div className="portrait">
-                    <img className="chat-image" src={animals[conversation.user_b.picture]}/>
-                    <p className="chat-name"> {`${conversation.user_b.first_name} ${conversation.user_b.last_name}`} </p>
-                </div>
+                <img className="chat-image" src={animals[conversation.user_b.picture]}/>
                 <div className="message-container">
+                    <p className="chat-name"> {`${conversation.user_b.first_name} ${conversation.user_b.last_name}`} </p>
                     <p className="last-message"> {msg.content} </p>
                 </div>
             </div>
@@ -22,11 +20,9 @@ const ChatCard = ({conversation, id}) => {
     } else if (id === conversation.user_b.id) {
         return (
             <div className='chat-card'>
-                <div className="portrait">
-                    <img className="chat-image" src={animals[conversation.user_a.picture]}/>
-                    <p> {`${conversation.user_a.first_name} ${conversation.user_a.last_name}`} </p>
-                </div>
+                <img className="chat-image" src={animals[conversation.user_a.picture]}/>
                 <div className="message-container">
+                    <p className="chat-name"> {`${conversation.user_a.first_name} ${conversation.user_a.last_name}`} </p>
                     <p className="last-message"> {msg.content} </p>
                 </div>
             </div>

@@ -7,18 +7,21 @@
   padding-bottom: 1em;
 }
 
-.portrait {
+/* .portrait {
   display: flex;
   flex-direction: column;
   background-color: #E6B9CD;
-}
+} */
 
 .chat-image {
-  width: 25vh;
+  width: 30vh;
 }
 
 .chat-name {
-  width: 25vh;
+  width: 100%;
+  padding: 0.5em;
+  box-sizing: border-box;
+  background-color: #E6B9CD;
 }
 
 .message-container {
@@ -28,6 +31,8 @@
 }
 
 .last-message {
-  padding: 1em;
+  margin: 1em 0;
+  padding: 0 0.5em;
+  box-sizing: border-box;
   width: 100%;
 }
