@@ -23,7 +23,7 @@ const InterestSearchForm = ({filterInterests}) => {
                 <option value='art'>Art</option>
                 <option value='cinema'>Cinema</option>
                 <option value='food'>Food</option>
-                <option value='video_games'>Video Games</option>
+                <option value='gaming'>Gaming</option>
                 <option value='traveling'>Traveling</option>
                 <option value='networking'>Networking</option>
             </select>
