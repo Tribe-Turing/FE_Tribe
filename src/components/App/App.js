@@ -5,7 +5,7 @@ import Dashboard from '../Dashboard/Dashboard';
 import Nav from '../Nav/Nav';
 import UserProfile from '../UserProfile/UserProfile';
 import Header from '../Header/Header';
-import OnlineProfiles from '../OnlineProfiles/OnlineProfiles';
+// import OnlineProfiles from '../OnlineProfiles/OnlineProfiles';
 import ChatList from '../ChatList/ChatList';
 import Chat from '../Chat/Chat';
 import ProfileSettings from '../ProfileSettings/ProfileSettings';
@@ -17,14 +17,14 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [messages, setMessages] = useState([]);
   const [loggedInUserProfPic, setLoggedInUserProfPic] = useState("");
-  const [userID, setUserID] = useState(1);
+  // const [userID, setUserID] = useState(1);
   const [messageUser, setMessageUser] = useState('');
 
   const getUsers = async () => {
     const response = await apiCalls.fetchUsers();
-    const data = await response.filter(profile => profile.id != userID);
-    setUsers(data);
     const id = localStorage.getItem('loggedInUserID')
+    const data = await response.filter(profile => profile.id != id);
+    setUsers(data);
     if (id) {
       getOneUser(id);
     }
@@ -39,6 +39,7 @@ function App() {
 
   const addSettings = (userSettings) => {
     apiCalls.updateSettings(loggedInUser.id, userSettings)
+    getOneUser(loggedInUser.id);
   }
 
   useEffect(() => {
@@ -72,13 +73,13 @@ function App() {
       </Route>
 
       <Route exact path='/chatlist'>
-
         <ChatList
           users={users}
           loggedInUser={loggedInUser}
           messageUser={messageUser}
         />
       </Route>
+
 
       <Route exact path='/settings'>
         <ProfileSettings
