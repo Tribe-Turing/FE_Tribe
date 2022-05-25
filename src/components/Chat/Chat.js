@@ -45,7 +45,9 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
       let user = users.find(u => u.id === messageUser)
       otherUser = {
         id: messageUser,
-        picture: user.image
+        picture: user.image,
+        first_name: user.first_name,
+        last_name: user.last_name
       }
     }
     if(!conversation) {
@@ -148,7 +150,7 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
               <button type="submit" className="message-button">Send</button>
             </form>
           </div>
-        
+
       </section>
     )
   } else {
