@@ -19,7 +19,7 @@ const UserProfile = ({id, loggedInUser, setMessageUser}) => {
 
     useEffect(() => {
         getOneUser();
-    }, []);
+    }, [details]);
 
     const messageUser = async () => {
       const foundConvo = loggedInUser.conversations.find(conversation => conversation.convo.user_a_id == details.id || conversation.convo.user_b_id == details.id);
