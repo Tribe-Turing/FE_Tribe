@@ -42,7 +42,6 @@ const ProfileSettings = ({ loggedInUser, addSettings }) => {
         ...profileSettings.interests.slice(removedIndex + 1)
       ]
     }
-    console.log(updatedInterests)
     setProfileSettings(profileSettings => ({
       ...profileSettings, [e.target.name]: updatedInterests
     }))
