@@ -97,7 +97,7 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
           <div className="sent-line" key={index}>
             <div className="sent-message" key={message.id}>
               <p className="sent-message-p">{message.content}</p>
-              <NavLink to={`/profile/${loggedInUser.id}`}><img className="profile-badge convo" src={animals[loggedInUserProfPic]} alt={loggedInUser.username} /></NavLink>
+              <NavLink to={`/profile/${loggedInUser.id}`}><img className="profile-badge convo" src={animals[loggedInUserProfPic]} alt="Logged in User Profile Icon" /></NavLink>
             </div>
           </div>
         )
@@ -105,7 +105,7 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
         return (
           <div className="received-line" key={index}>
             <div className="received-message" key={message.id}>
-              <NavLink to={`/profile/${message.user_id}`}><img className="profile-badge convo" src={animals[otherUserProfPic]} alt={message.user_username} /></NavLink>
+              <NavLink to={`/profile/${message.user_id}`}><img className="profile-badge convo" src={animals[otherUserProfPic]} alt="Message Receiver Profile Icon" /></NavLink>
               <p className="received-message-p">{message.content}</p>
             </div>
           </div>
