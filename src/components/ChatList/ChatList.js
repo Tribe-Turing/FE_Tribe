@@ -4,7 +4,7 @@ import loadingSpinner from '../../assets/loadingSpinner.gif';
 import './ChatList.css'
 
 const ChatList = ({loggedInUser}) => {
-    let chatCards;
+  let chatCards;
     if (loggedInUser.id) {
       chatCards = loggedInUser.conversations.map((conversation, index) => {
           if (loggedInUser.id === conversation.user_a.id) {
