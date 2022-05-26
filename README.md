@@ -24,7 +24,9 @@ To get a local copy up and running follow these simple steps:
    git clone git@github.com:Tribe-Turing/fe_tribe.git
    ```
 2. cd into the root directory
-
+   ```sh
+   cd fe_tribe
+   ```
 3. Install NPM packages
    ```sh
    npm install
@@ -49,6 +51,7 @@ To get a local copy up and running follow these simple steps:
 
 # Technologies Used
 - React
+- WebSocket
 - Javascript
 - HTML/CSS
 - Lighthouse (Chrome Dev Tools)
@@ -61,23 +64,23 @@ Skip installation by using this deployment link to view the application: [Tribe]
 # Contributors
 <table>
     <tr>
-        <td> Sam Ivari: <a href="https://github.com/samivari">GitHub</td>
+<!--         <td> Sam Ivari: <a href="https://github.com/samivari">GitHub</td> -->
         <td> Sam Mistele: <a href="https://github.com/SamusMist">GitHub</td>
-        <td> Gunnar Sorensen: <a href="https://github.com/glsorensen">GitHub</td>
-        <td> Eldridge Turambi: <a href="https://github.com/Eldridge-Turambi">Github</td>
+<!--         <td> Gunnar Sorensen: <a href="https://github.com/glsorensen">GitHub</td> -->
+<!--         <td> Eldridge Turambi: <a href="https://github.com/Eldridge-Turambi">Github</td> -->
         <td> Lauralyn Watson: <a href="https://github.com/lswatson16">Github</td>
         <td> Dillon Parker: <a href="https://github.com/Prkr93">Github</td>
         <td> Andrew Musselman: <a href="https://github.com/Andrew-Musselman">Github</td>
         <td> Rory Magee: <a href="https://github.com/roryemagee1">Github</td>
     </tr>
- <td><img src="https://avatars.githubusercontent.com/u/87387139?v=4" alt="Sam Ivari GitHub"
- width="150" height="auto" /></td>
+<!--  <td><img src="https://avatars.githubusercontent.com/u/87387139?v=4" alt="Sam Ivari GitHub" -->
+<!--  width="150" height="auto" /></td> -->
  <td><img src="https://avatars.githubusercontent.com/u/89484102?v=4" alt="Sam Mistele GitHub"
  width="150" height="auto" /></td>
- <td><img src="https://avatars.githubusercontent.com/u/81265307?v=4" alt="Gunnar Sorensen GitHub"
- width="150" height="auto" /></td>
- <td><img src="https://avatars.githubusercontent.com/u/87398716?v=4" alt="Eldridge Turambi GitHub"
- width="150" height="auto" /></td>
+<!--  <td><img src="https://avatars.githubusercontent.com/u/81265307?v=4" alt="Gunnar Sorensen GitHub" -->
+<!--  width="150" height="auto" /></td> -->
+<!--  <td><img src="https://avatars.githubusercontent.com/u/87398716?v=4" alt="Eldridge Turambi GitHub" -->
+<!--  width="150" height="auto" /></td> -->
  <td><img src="https://avatars.githubusercontent.com/u/93230374?v=4" alt="Lauralyn Watson GitHub"
  width="150" height="auto" /></td>
  <td><img src="https://avatars.githubusercontent.com/u/90285348?v=4" alt="Dillon Parker GitHub"
@@ -87,6 +90,8 @@ Skip installation by using this deployment link to view the application: [Tribe]
  <td><img src="https://avatars.githubusercontent.com/u/92283709?v=4" alt="Rory Magee GitHub"
  width="150" height="auto" /></td>
 </table>
+
 # Credits
 - [Create React App](https://create-react-app.dev/)
 - [Heroku](https://www.heroku.com/)
+- [FontAwesome](https://fontawesome.com/)
