@@ -10,7 +10,9 @@ The trend is clear: in an increasingly connected world, we ironically find ourse
 
 Tribe is here to fix that.
 
-Tribe is a location-based friendship exploration app that uses technology to connect lonely people based on their interest compatibility.
+Tribe is a location-based friendship exploration app that uses technology to connect lonely people based on their interest compatibility.  Unlike other social media platforms--which are known to increase feelings of isolation and anxiety--Tribe emphasizes the creation of interest-based communities and natural conversations instead of the posting of over-curated images in shallow news feeds.
+
+The details of the Alpha release of Tribe can be found below.
 
 # Deployment
 - The application was deployed using [Heroku](https://www.heroku.com/).
