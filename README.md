@@ -39,6 +39,9 @@ To get a local copy up and running follow these simple steps:
    - Open http://localhost:3000 to view it in the browser.
    - The page will reload if you make edits.
 
+## Installation for backend server
+Installation steps can be found here in the [Backend README](https://github.com/Tribe-Turing/be_tribe#readme)
+
 # Challenges and Wins
 
 # Features
