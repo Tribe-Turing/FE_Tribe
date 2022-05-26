@@ -74,9 +74,19 @@ Installation steps can be found here in the [Backend README](https://github.com/
 
 ![tribe-chat](https://user-images.githubusercontent.com/92277979/170588052-afca5a42-805b-41f0-ab03-00fa99517f4a.gif)
 
-### Local Storage
+# Future Work & Feature Additions
 
-# Future Additions
+1. Application Functionality
+ * Refactoring and adding further testing.
+ * Adding more-specific error handling.
+2. Features
+ * Interest-based chat room
+ * Location-based friendship discovery
+ * Event support
+ * Random chat feature
+ * Friendship matchmaking
+
+
 
 # Technologies Used
 - React
