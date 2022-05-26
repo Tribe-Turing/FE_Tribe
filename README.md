@@ -86,8 +86,6 @@ Installation steps can be found here in the [Backend README](https://github.com/
  * Random chat feature
  * Friendship matchmaking
 
-
-
 # Technologies Used
 - React
 - WebSocket
@@ -95,6 +93,8 @@ Installation steps can be found here in the [Backend README](https://github.com/
 - HTML/CSS
 - Lighthouse (Chrome Dev Tools)
 - React Dev Tools (Chrome Dev Tools)
+
+![Lucid Chart](https://user-images.githubusercontent.com/93230374/170495899-edd6d611-6a8e-4549-a304-57b8b00956e5.png)
 
 # Contributors
 <table>
