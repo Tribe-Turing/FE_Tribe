@@ -124,6 +124,17 @@ The Settings button navigates to the Settings component, which consists of a con
 
 - Once the user profile has been customized, clicking the Save Changes button redirects the user to their UserProfile so that they can see that the changes have been unpdated.
 
+## Cypress Testing, GitHub Actions, & Continuous Integration
+
+We used Cypress for End-to-End testing.  Here is an example of one of our tests:
+
+![](https://user-images.githubusercontent.com/92277979/170595157-72453efa-29ff-4bf2-b617-bad97f25a8f8.png)
+
+To install Cypress locally and view the rest of the tests, type the following command:
+   ```sh
+   npm run cypress
+   ```
+
 # Future Work & Feature Additions
 
 ### Application Functionality
