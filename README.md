@@ -2,6 +2,16 @@
 
 ## Overview
 
+During the past 30 years, we as a society have witnessed an unprecedented level of technological growth.  Ever since the advent of the internet in the 90s, the world has become increasingly technologically connected.
+
+However, these changes have not come without consequence.  Today, over 61% of young adults in the United States report feeling seriously lonely.  Additionally, the average number of friends that Americans report having is half the number reported in surveys just 20 years prior.  The impact of this trend is staggering: reports estimate that loneliness increases the risk of mortality to the same degree as smoking as many as 15 cigarettes a day!
+
+The trend is clear: in an increasingly connected world, we ironically find ourselves increasingly isolated by technology.
+
+Tribe is here to fix that.
+
+Tribe is a location-based friendship exploration app that uses technology to connect lonely people based on their interest compatibility.
+
 # Deployment
 - The application was deployed using [Heroku](https://www.heroku.com/).
 - Skip installation by using this deployment link to view the application: [Tribe](https://fe-tribe.herokuapp.com/)
@@ -15,6 +25,12 @@
 - Network request
 - API
 - Asychronous JavaScript
+
+## Design Process & Wireframes
+
+## Component Architecture
+
+## Roadmap
 
 # Getting Started
 To get a local copy up and running follow these simple steps:
@@ -39,7 +55,7 @@ To get a local copy up and running follow these simple steps:
    ```
    - Runs the app in the development mode.
    - Open http://localhost:3000 to view it in the browser.
-   - The page will reload if you make edits.
+   - This installation process will enable you to run the Cypress tests for the project.
 
 ## Installation for backend server
 Installation steps can be found here in the [Backend README](https://github.com/Tribe-Turing/be_tribe#readme)
