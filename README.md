@@ -82,17 +82,9 @@ The Minimum Viable Product (MVP) has three core components:
 - Dashboard with Interest Filtering
 - Profile Customization
 - Chat Application
-### Dashboard:
+## Dashboard, Profile Customization, & Chat Application Gifs
 
-![tribe-filter](https://user-images.githubusercontent.com/92277979/170588024-7ee4b2de-64b4-48eb-805e-363f459aa1b1.gif)
-
-### Profile Customization:
-
-![tribe-settings](https://user-images.githubusercontent.com/92277979/170588038-2bfdeb2b-655f-4048-943f-11e3b2d46b05.gif)
-
-### Chat Application:
-
-![tribe-chat](https://user-images.githubusercontent.com/92277979/170588052-afca5a42-805b-41f0-ab03-00fa99517f4a.gif)
+![tribe-filter](https://user-images.githubusercontent.com/92277979/170588024-7ee4b2de-64b4-48eb-805e-363f459aa1b1.gif) ![tribe-settings](https://user-images.githubusercontent.com/92277979/170588038-2bfdeb2b-655f-4048-943f-11e3b2d46b05.gif) ![tribe-chat](https://user-images.githubusercontent.com/92277979/170588052-afca5a42-805b-41f0-ab03-00fa99517f4a.gif)
 
 ## Component Architecture
 
