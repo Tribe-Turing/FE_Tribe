@@ -30,8 +30,6 @@ The details of the Alpha release of Tribe can be found below.
 
 ![](https://user-images.githubusercontent.com/92283709/170591742-83af81fe-4d92-46a0-85e1-11752aa8ce0e.png)
 
-## Component Architecture
-
 
 
 ## JSON Contract
@@ -91,6 +89,37 @@ The Minimum Viable Product (MVP) has three core components:
 ### Chat Application:
 
 ![tribe-chat](https://user-images.githubusercontent.com/92277979/170588052-afca5a42-805b-41f0-ab03-00fa99517f4a.gif)
+
+## Component Architecture
+
+We designed our component architecture with the mobile view in mind.  
+
+The general component format is as follows:
+
+ - Header
+ - Page Content
+ - Nav
+
+ The Header component always has an icon of the current user's profile which navigates to their full profile when clicked.
+
+ The Nav component always has the following three icons:
+
+ - Home
+ - Chat
+ - Settings
+
+The Home button navigates to the Dashboard component for searching for friends.
+
+The Chat button navigates to the ChatList component, which is a list of the user's existing chats with other users.  
+
+- If the user clicks on the profile picture of the another user, the application will navigate to their corresponding profile.  
+
+- If the user clicks on the body of the most recent message displayed, the application will navigate to the Chat component, which contains the full conversation between the two users.
+
+The Settings button navigates to the Settings component, which consists of a controlled form that lets the user customize their own profile.  
+
+- Once the user profile has been customized, clicking the Save Changes button redirects the user to their UserProfile so that they can see that the changes have been unpdated.
+
 
 # Future Work & Feature Additions
 
