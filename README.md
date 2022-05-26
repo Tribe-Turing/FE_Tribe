@@ -2,7 +2,9 @@
 
 ## Overview
 
-[Tribe](https://fe-tribe.herokuapp.com/)
+# Deployment
+- The application was deployed using [Heroku](https://www.heroku.com/).
+- Skip installation by using this deployment link to view the application: [Tribe](https://fe-tribe.herokuapp.com/)
 
 # Learning Goals
 - Collaborating on a fullstack application
@@ -17,7 +19,7 @@
 # Getting Started
 To get a local copy up and running follow these simple steps:
 
-## Installation
+## Developer Environment Installation
 
 1. In your terminal, clone the repo
    ```sh
@@ -59,10 +61,6 @@ Installation steps can be found here in the [Backend README](https://github.com/
 - HTML/CSS
 - Lighthouse (Chrome Dev Tools)
 - React Dev Tools (Chrome Dev Tools)
-
-# Deployment
-Skip installation by using this deployment link to view the application: [Tribe](https://fe-tribe.herokuapp.com/)
-- The application was deployed using [Heroku](https://www.heroku.com/).
 
 # Contributors
 <table>
