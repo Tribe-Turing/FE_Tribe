@@ -2,6 +2,7 @@ describe('Dashboard', () => {
     it('As a user, when the page loads I should see a dashboard of user profiles', () => {
         cy.intercept('GET', 'https://be-tribe.herokuapp.com/api/v1/users', {fixture: 'allUsers.json'})
         cy.visit('http://localhost:3000/')
+        cy.visit('http://localhost:3000/login/1')
         .get('div[class="user-card"]')
         .should(($div) => {
             expect($div).to.have.length(12)
@@ -22,6 +23,7 @@ describe('Dashboard', () => {
     it('As a user, I should be able to filter by interestes to change my dashboard view', () => {
         cy.intercept('GET', 'https://be-tribe.herokuapp.com/api/v1/users', {fixture: 'allUsers.json'})
         cy.visit('http://localhost:3000/')
+        cy.visit('http://localhost:3000/login/1')
         .get('select').select('nature')
         .should('have.value', 'nature')
         .get('div[class="user-card"]')
@@ -38,12 +40,13 @@ describe('Dashboard', () => {
         cy.intercept('GET', 'https://be-tribe.herokuapp.com/api/v1/users', {fixture: 'allUsers.json'})
         cy.intercept('GET', `https://be-tribe.herokuapp.com/api/v1/users/*`, {fixture: 'singleUser.json'})
         cy.visit('http://localhost:3000/')
+        cy.visit('http://localhost:3000/login/1')
         .get('div[class="user-card"]').first().click()
         .url().should('eq', 'http://localhost:3000/user/2')
         .get('h2').should('contain', 'Susan')
-        .get('p').first()
+        .get('p[class="user-pronouns"]')
         .should('contain', 'she/her')
-        .get('p').last()
+        .get('p[class="bio"]')
         .should('contain', 'I am lonely and have too many cats')
         .get('li').should(($li) => {
             expect($li).to.have.length(2)
