@@ -14,9 +14,15 @@ Tribe is a location-based friendship exploration app that uses technology to con
 
 The details of the Alpha release of Tribe can be found below.
 
-## Deployment
+# Deployment
 - The application was deployed using [Heroku](https://www.heroku.com/).
 - Skip installation by using this deployment link to view the application: [Tribe](https://fe-tribe.herokuapp.com/)
+- Since the application currently doesn't have a login page, type the following in the url to login:
+
+   https://fe-tribe.herokuapp.com/login/:id
+
+   Where ":id" is the user's login ID.
+- The application currently has 12 different logins with the numbers of 1 to 12 used as the login IDs.
 
 # Learning Goals
 - Collaborating on a fullstack application
@@ -26,19 +32,18 @@ The details of the Alpha release of Tribe can be found below.
 - API Creation and Implementation
 - Asychronous JavaScript
 
+# Project Details
 ## Design Concept Wireframes
 
 ![](https://user-images.githubusercontent.com/92283709/170591742-83af81fe-4d92-46a0-85e1-11752aa8ce0e.png)
 
+## Project Roadmap
 
+![](https://user-images.githubusercontent.com/92283709/170591329-f04e0488-1b0b-469b-a9eb-44bfbbef1297.png)
 
 ## JSON Contract
 
 ![json_contract](https://user-images.githubusercontent.com/93230374/170589289-94ac0631-feaa-4ed4-8d24-d7f663d02378.png)
-
-## Project Roadmap
-
-![](https://user-images.githubusercontent.com/92283709/170591329-f04e0488-1b0b-469b-a9eb-44bfbbef1297.png)
 
 # Getting Started
 To get a local copy up and running follow these simple steps:
@@ -68,16 +73,15 @@ To get a local copy up and running follow these simple steps:
 ## Installation for backend server
 Installation steps can be found here in the [Backend README](https://github.com/Tribe-Turing/be_tribe#readme)
 
-# Challenges and Wins
-
 # Features
+
+## MVP
 
 The Minimum Viable Product (MVP) has three core components:
 
 - Dashboard with Interest Filtering
 - Profile Customization
 - Chat Application
-
 ### Dashboard:
 
 ![tribe-filter](https://user-images.githubusercontent.com/92277979/170588024-7ee4b2de-64b4-48eb-805e-363f459aa1b1.gif)
@@ -120,13 +124,14 @@ The Settings button navigates to the Settings component, which consists of a con
 
 - Once the user profile has been customized, clicking the Save Changes button redirects the user to their UserProfile so that they can see that the changes have been unpdated.
 
-
 # Future Work & Feature Additions
 
-1. Application Functionality
+### Application Functionality
  * Refactoring and adding further testing
  * Adding more-specific error handling
-2. Features
+ * Adding a dedicated login page
+
+### Features
  * Interest-based chat room
  * Location-based friendship discovery
  * Event support
