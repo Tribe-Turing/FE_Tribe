@@ -32,7 +32,11 @@ The details of the Alpha release of Tribe can be found below.
 
 ## Component Architecture
 
+
+
 ## JSON Contract
+
+![json_contract](https://user-images.githubusercontent.com/93230374/170589289-94ac0631-feaa-4ed4-8d24-d7f663d02378.png)
 
 ## Project Roadmap
 
