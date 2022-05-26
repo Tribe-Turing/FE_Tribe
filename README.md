@@ -14,7 +14,7 @@ Tribe is a location-based friendship exploration app that uses technology to con
 
 The details of the Alpha release of Tribe can be found below.
 
-# Deployment
+## Deployment
 - The application was deployed using [Heroku](https://www.heroku.com/).
 - Skip installation by using this deployment link to view the application: [Tribe](https://fe-tribe.herokuapp.com/)
 
@@ -31,6 +31,8 @@ The details of the Alpha release of Tribe can be found below.
 ![](https://user-images.githubusercontent.com/92283709/170591742-83af81fe-4d92-46a0-85e1-11752aa8ce0e.png)
 
 ## Component Architecture
+
+## JSON Contract
 
 ## Project Roadmap
 
@@ -99,12 +101,12 @@ The Minimum Viable Product (MVP) has three core components:
  * Friendship matchmaking
 
 # Technologies Used
-- React
-- WebSocket
-- Javascript
-- HTML/CSS
-- Lighthouse (Chrome Dev Tools)
-- React Dev Tools (Chrome Dev Tools)
+- Languages/Frameworks: React, Ruby on Rails
+- Chat: WebSocket
+- Hosting: Heroku
+- Continuous Integration: GitHub Actions
+- Testing: Cypress, RSpec
+- Accessibility: Lighthouse
 
 ![Lucid Chart](https://user-images.githubusercontent.com/93230374/170495899-edd6d611-6a8e-4549-a304-57b8b00956e5.png)
 
