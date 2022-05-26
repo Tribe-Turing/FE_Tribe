@@ -26,8 +26,17 @@ describe('Chat/ChatList', () => {
       })
   });
 
-  it.skip('As a user, I should be able to navigate to a user profile and click to message them, and be redirected to a new conversation with that user', () => {
+  it('As a user, I should be able to navigate to a user profile and click to message them, and be redirected to a new conversation with that user', () => {
+    cy.intercept('GET', 'https://be-tribe.herokuapp.com/api/v1/users', {fixture: 'allUsers.json'})
+    cy.intercept('GET', 'https://be-tribe.herokuapp.com/api/v1/users/1', {fixture: 'singleUser.json'})
+    cy.intercept('GET', 'https://be-tribe.herokuapp.com/api/v1/conversations/1', {fixture: 'conversation.json'})
+    cy.visit('http://localhost:3000/login/1')
+    cy.visit('http://localhost:3000/chatlist')
 
+    cy.get('.chat-button').click()
+      .url().should('eq', 'http://localhost:3000/chatlist')
+      .get('.last-message').should('contain', 'Test 2').click()
+      .url().should('eq', 'http://localhost:3000/conversations/1')
   });
 
   it.skip('As a user, I should be able to navigate to an existing conversation and the page should be loaded with existing messages', () => {
