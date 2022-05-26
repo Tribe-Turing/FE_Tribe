@@ -2,6 +2,8 @@
   padding-top: 6em;
   padding-bottom: 6em;
   background-color: #6CBAEB;
+  display: flex;
+  flex-direction: column;
 }
 
 .profile-badge {
@@ -58,7 +60,10 @@
 }
 
 .message-form {
+  background-color: #6CBAEB;
   width: 100vw;
+  position: fixed;
+  top: 87.5vh;
 }
 
 .message-input {
@@ -75,4 +80,9 @@
   padding: 1px;
   margin: 5px;
   cursor: pointer;
+}
+
+.messages-container {
+  overflow: scroll;
+  height: 65vh;
 }

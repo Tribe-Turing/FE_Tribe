@@ -19,7 +19,7 @@ const UserProfile = ({id, loggedInUser, setMessageUser}) => {
 
     useEffect(() => {
         getOneUser();
-    }, []);
+    }, [details]);
 
     const messageUser = async () => {
       const foundConvo = loggedInUser.conversations.find(conversation => conversation.convo.user_a_id == details.id || conversation.convo.user_b_id == details.id);
@@ -48,7 +48,7 @@ const UserProfile = ({id, loggedInUser, setMessageUser}) => {
     return (
         isLoading ? <img className="loading-spinner" src={loadingSpinner}/> :
         <div className='profile-view'>
-            <img className="photo" src={animals[details.image]}/>
+            <img className="photo" src={animals[details.image]} alt="Your Profile Photo"/>
             <div className="profile-details">
               <h2 className='name'>{details.first_name}</h2>
               <p className='user-pronouns'>{details.pronouns}</p>
@@ -59,7 +59,7 @@ const UserProfile = ({id, loggedInUser, setMessageUser}) => {
               <ul className='user-interests'>
               {details.interests.map((interest, index) => <li key={index}>{interest}</li>)}
               </ul>
-              {loggedInUser.id === id ? '' :
+              {loggedInUser.id == id ? '' :
                 <button className='message-user' onClick={() => messageUser()}>Message {details.first_name}</button>
               }
             </div>

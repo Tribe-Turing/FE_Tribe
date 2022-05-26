@@ -1,6 +1,8 @@
 import React from 'react';
 import UserProfile from '../UserProfile/UserProfile';
 
+// This component is a possible extension which would show the profiles who are currently logged in above your chat conversations.
+
 const OnlineProfiles = ({users}) => {
     // Will need filter for online profiles, but otherwise will work the same
 

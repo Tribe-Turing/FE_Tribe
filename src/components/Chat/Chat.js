@@ -97,7 +97,7 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
           <div className="sent-line" key={index}>
             <div className="sent-message" key={message.id}>
               <p className="sent-message-p">{message.content}</p>
-              <NavLink to={`/profile/${loggedInUser.id}`}><img className="profile-badge convo" src={animals[loggedInUserProfPic]} alt={loggedInUser.username} /></NavLink>
+              <NavLink to={`/user/${loggedInUser.id}`}><img className="profile-badge convo" src={animals[loggedInUserProfPic]} alt="Logged in User Profile Icon" /></NavLink>
             </div>
           </div>
         )
@@ -105,7 +105,7 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
         return (
           <div className="received-line" key={index}>
             <div className="received-message" key={message.id}>
-              <NavLink to={`/profile/${message.user_id}`}><img className="profile-badge convo" src={animals[otherUserProfPic]} alt={message.user_username} /></NavLink>
+              <NavLink to={`/user/${message.user_id}`}><img className="profile-badge convo" src={animals[otherUserProfPic]} alt="Message Receiver Profile Icon" /></NavLink>
               <p className="received-message-p">{message.content}</p>
             </div>
           </div>
@@ -136,6 +136,7 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
     }
 
     return (
+      <>
       <section className="chat-view">
         <h1 className="profile-h1 username" id="chat">{`Chat with ${otherUser.first_name} ${otherUser.last_name}`}</h1>
         <div className="page-content conversation-page">
@@ -144,14 +145,14 @@ const Chat = ({ users, loggedInUser, loggedInUserProfPic, messages, setMessages,
             {messageBubbles}
           </div>
         </div>
-          <div className="message-form">
-            <form onSubmit={handleSubmit}>
-              <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="message-input"/>
-              <button type="submit" className="message-button">Send</button>
-            </form>
-          </div>
-
       </section>
+      <div className="message-form">
+        <form onSubmit={handleSubmit}>
+          <input aria-label="Chat Message Input Field" type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="message-input"/>
+          <button type="submit" className="message-button">Send</button>
+        </form>
+      </div>
+      </>
     )
   } else {
     return (
