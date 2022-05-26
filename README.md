@@ -20,19 +20,21 @@ The details of the Alpha release of Tribe can be found below.
 
 # Learning Goals
 - Collaborating on a fullstack application
-- WebSockets
-- React fundamentals
-- React Hooks
-- Local storage
-- Network request
-- API
+- Implementing WebSockets
+- Refining React fundamentals
+- Using React Hooks
+- API Creation and Implementation
 - Asychronous JavaScript
 
-## Design Process & Wireframes
+## Design Concept Wireframes
+
+![](https://user-images.githubusercontent.com/92283709/170591742-83af81fe-4d92-46a0-85e1-11752aa8ce0e.png)
 
 ## Component Architecture
 
-## Roadmap
+## Project Roadmap
+
+![](https://user-images.githubusercontent.com/92283709/170591329-f04e0488-1b0b-469b-a9eb-44bfbbef1297.png)
 
 # Getting Started
 To get a local copy up and running follow these simple steps:
@@ -66,19 +68,29 @@ Installation steps can be found here in the [Backend README](https://github.com/
 
 # Features
 
-### Show dashboard
+The Minimum Viable Product (MVP) has three core components:
+
+- Dashboard with Interest Filtering
+- Profile Customization
+- Chat Application
+
+### Dashboard:
 
 ![tribe-filter](https://user-images.githubusercontent.com/92277979/170588024-7ee4b2de-64b4-48eb-805e-363f459aa1b1.gif)
 
+### Profile Customization:
+
 ![tribe-settings](https://user-images.githubusercontent.com/92277979/170588038-2bfdeb2b-655f-4048-943f-11e3b2d46b05.gif)
+
+### Chat Application:
 
 ![tribe-chat](https://user-images.githubusercontent.com/92277979/170588052-afca5a42-805b-41f0-ab03-00fa99517f4a.gif)
 
 # Future Work & Feature Additions
 
 1. Application Functionality
- * Refactoring and adding further testing.
- * Adding more-specific error handling.
+ * Refactoring and adding further testing
+ * Adding more-specific error handling
 2. Features
  * Interest-based chat room
  * Location-based friendship discovery
